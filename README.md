@@ -83,7 +83,7 @@ https://github.com/keioNishi/lec-dataai/wiki
 - E-PyTorch-Advanced  
 [![dataai-text-E-PyTorch-Advanced.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-E-PyTorch-Advanced.ipynb)
 - F-物体検出  
-[![dataai-text-F-物体検出-YoLov3.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-F-物体検出-YoLov3.ipynb)
+[![dataai-text-F-物体検出.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-F-物体検出.ipynb)
 - G-音声識別  
 [![dataai-text-G-音声識別.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-G-音声識別.ipynb)
 - H-GAN-1  
@@ -92,20 +92,38 @@ https://github.com/keioNishi/lec-dataai/wiki
 [![dataai-text-H-GAN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-H-GAN-2.ipynb)
 - I-NLP-1-Basics  
 [![dataai-text-I-NLP-1-Basics.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-1-Basics.ipynb)
-- I-NLP-2-S2SAtten  
-[![dataai-text-I-NLP-2-S2SAtten.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-2-S2SAtten.ipynb)
+- I-NLP-2-AttenSAGS2S  
+[![dataai-text-I-NLP-2-AttenSAGS2S.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-2-AttenSAGS2S.ipynb)
 - I-NLP-3-Transformer  
 [![dataai-text-I-NLP-3-Transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-3-Transformer.ipynb)
 - I-NLP-4-BERT  
 [![dataai-text-I-NLP-4-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-4-BERT.ipynb)
-- J-StyleGAN-1  
-[![dataai-text-J-StyleGAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-StyleGAN-1.ipynb)
-- J-StyleGAN-2  
-[![dataai-text-J-StyleGAN-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-StyleGAN-2.ipynb)
-- K-Diffusion-1  
-[![dataai-text-K-Diffusion-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-Diffusion-1.ipynb)
-- K-Diffusion-2  
-[![dataai-text-K-Diffusion-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-Diffusion-2.ipynb)
+- I-NLP-5-CLIP  
+[![dataai-text-I-NLP-5-CLIP.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-5-CLIP.ipynb)
+- I-NLP-CLIP  
+[![dataai-text-I-NLP-5-CLIP.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-5-CLIP.ipynb)
+- J-Transformer-ViT  
+[![dataai-text-J-Transformer-ViT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-Transformer-ViT.ipynb)
+- K-StyleGAN-1  
+[![dataai-text-K-StyleGAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-StyleGAN-1.ipynb)
+- K-StyleGAN-2  
+[![dataai-text-K-StyleGAN-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-StyleGAN-2.ipynb)
+- K-StyleGAN-3  
+[![dataai-text-K-StyleGAN-3.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-StyleGAN-3.ipynb)
+- L-Diffusion-1  
+[![dataai-text-K-Diffusion-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-L-Diffusion-1.ipynb)
+- L-Diffusion-2  
+[![dataai-text-K-Diffusion-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-L-Diffusion-2.ipynb)
+- M-ChatGPT-1-Basics  
+[![dataai-text-M-ChatGPT-1-Basic.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-M-ChatGPT-1-Basic.ipynb)
+- M-ChatGPT-2-LangChain  
+[![dataai-text-M-ChatGPT-2-LangChain.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-M-ChatGPT-2-LangChain.ipynb)
+- N-RWKV  
+[![dataai-text-N-RWKV.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-N-RWKV.ipynb)
+- O-Federated  
+[![dataai-text-O-Federated.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-O-Federated.ipynb)
+- P-AIの将来  
+[![dataai-text-P-AIの将来.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-P-AIの将来.ipynb)
 ----
 
 ## Colabの利用形態ついて
