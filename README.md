@@ -1,4 +1,4 @@
-[![レクチャーノートブック](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai)
+[![レクチャーノートブック](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys)
 [![PyTorchバッジ](https://img.shields.io/badge/PyTorch->v1.0-232f3e.svg?style=flat)](https://pytorch.org/)
 [![Slackデータシステムの知能化とデザイン](https://img.shields.io/badge/Slack-keio--sd--dataai-3f0f40.svg?style=flat)](https://keio-sd-dataai.slack.com/)
 [![HIT-Academy](https://img.shields.io/badge/Slack-hitacademy--ml-3f0f40.svg?style=flat)](https://hitacademy-ml.slack.com/)
@@ -11,7 +11,7 @@
 
 ## このレポジトリの利用について
 - 全体の閲覧とダウンロード
-  - 左上もしくはこちら[![レクチャーノートブック](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai)のバッジを利用してください
+  - 左上もしくはこちら[![レクチャーノートブック](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys)のバッジを利用してください
 - 個別ダウンロードは下記にリンクがあります
   - 授業を受ける際にはこちらが便利です
 
@@ -19,7 +19,7 @@
 - この授業は、講義と演習で構成されます
   - 講義はこちらのテキストに沿って進めます
   - 演習はテキスト内にある演習問題や、別途与えられる演習問題を用いて行います
-  - この講義では、2018年度授業よりGoogle Colaboratoryを利用しています
+  - 2018年度授業よりGoogle Colaboratoryを利用しており、利用にあたっては諸注意があります
 
 ### 推奨環境について
 - この授業は個人PC上で動作するGoogle Chromeブラウザを利用し、GitHubおよびGoogle Colaboratory(以下Colab)にアクセスして履修することを想定しています
