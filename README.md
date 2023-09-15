@@ -70,42 +70,42 @@ https://github.com/keioNishi/lec-dataai/wiki
 [![dataai-text-7-PyTorch.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-7-PyTorch.ipynb)
 - 8-PyTorch-Basics  
 [![dataai-text-8-PyTorch-Basics.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-8-PyTorch-Basics.ipynb)
-- 9-PyTorch-CNN  
-[![dataai-text-9-PyTorch-CNN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-9-PyTorch-CNN.ipynb)
-- A-PyTorch-RNN  
-[![dataai-text-A-PyTorch-RNN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-A-PyTorch-RNN.ipynb)
-- B-PyTorch-AutoEncoder  
-[![dataai-text-B-PyTorch-AutoEncoder.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-B-PyTorch-AutoEncoder.ipynb)
-- C-PyTorch-転移学習  
-[![dataai-text-C-PyTorch-転移学習.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-C-PyTorch-転移学習.ipynb)
-- D-PyTorch-強化学習  
-[![dataai-text-D-PyTorch-強化学習.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-D-PyTorch-強化学習.ipynb)
+- 9-CNN  
+[![dataai-text-9-CNN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-9-CNN.ipynb)
+- A-RNN  
+[![dataai-text-A-RNN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-A-RNN.ipynb)
+- B-AutoEncoder  
+[![dataai-text-B-AutoEncoder.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-B-AutoEncoder.ipynb)
+- C-転移学習  
+[![dataai-text-C-転移学習.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-C-転移学習.ipynb)
+- D-強化学習  
+[![dataai-text-D-強化学習.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-D-強化学習.ipynb)
 - E-PyTorch-Advanced  
 [![dataai-text-E-PyTorch-Advanced.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-E-PyTorch-Advanced.ipynb)
-- F-PyTorch-物体検出  
-[![dataai-text-F-PyTorch-物体検出-YoLov3.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-F-PyTorch-物体検出-YoLov3.ipynb)
-- G-PyTorch-音声識別  
-[![dataai-text-G-PyTorch-音声識別.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-G-PyTorch-音声識別.ipynb)
-- H-PyTorch-GAN-1  
-[![dataai-text-H-PyTorch-GAN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-H-PyTorch-GAN-1.ipynb)
-- H-PyTorch-GAN-2  
-[![dataai-text-H-PyTorch-GAN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-H-PyTorch-GAN-2.ipynb)
-- I-PyTorch-NLP-1-Basics  
-[![dataai-text-I-PyTorch-NLP-1-Basics.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-PyTorch-NLP-1-Basics.ipynb)
-- I-PyTorch-NLP-2-S2SAtten  
-[![dataai-text-I-PyTorch-NLP-2-S2SAtten.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-PyTorch-NLP-2-S2SAtten.ipynb)
-- I-PyTorch-NLP-3-Transformer  
-[![dataai-text-I-PyTorch-NLP-3-Transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-PyTorch-NLP-3-Transformer.ipynb)
-- I-PyTorch-NLP-4-BERT  
-[![dataai-text-I-PyTorch-NLP-4-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-PyTorch-NLP-4-BERT.ipynb)
-- J-PyTorch-StyleGAN-1  
-[![dataai-text-J-PyTorch-StyleGAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-PyTorch-StyleGAN-1.ipynb)
-- J-PyTorch-StyleGAN-2  
-[![dataai-text-J-PyTorch-StyleGAN-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-PyTorch-StyleGAN-2.ipynb)
-- K-PyTorch-Diffusion-1  
-[![dataai-text-K-PyTorch-Diffusion-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-PyTorch-Diffusion-1.ipynb)
-- K-PyTorch-Diffusion-2  
-[![dataai-text-K-PyTorch-Diffusion-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-PyTorch-Diffusion-2.ipynb)
+- F-物体検出  
+[![dataai-text-F-物体検出-YoLov3.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-F-物体検出-YoLov3.ipynb)
+- G-音声識別  
+[![dataai-text-G-音声識別.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-G-音声識別.ipynb)
+- H-GAN-1  
+[![dataai-text-H-GAN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-H-GAN-1.ipynb)
+- H-GAN-2  
+[![dataai-text-H-GAN.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-H-GAN-2.ipynb)
+- I-NLP-1-Basics  
+[![dataai-text-I-NLP-1-Basics.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-1-Basics.ipynb)
+- I-NLP-2-S2SAtten  
+[![dataai-text-I-NLP-2-S2SAtten.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-2-S2SAtten.ipynb)
+- I-NLP-3-Transformer  
+[![dataai-text-I-NLP-3-Transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-3-Transformer.ipynb)
+- I-NLP-4-BERT  
+[![dataai-text-I-NLP-4-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-I-NLP-4-BERT.ipynb)
+- J-StyleGAN-1  
+[![dataai-text-J-StyleGAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-StyleGAN-1.ipynb)
+- J-StyleGAN-2  
+[![dataai-text-J-StyleGAN-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-J-StyleGAN-2.ipynb)
+- K-Diffusion-1  
+[![dataai-text-K-Diffusion-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-Diffusion-1.ipynb)
+- K-Diffusion-2  
+[![dataai-text-K-Diffusion-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-dataai/blob/main/dataai-text-K-Diffusion-2.ipynb)
 ----
 
 ## Colabの利用形態ついて
