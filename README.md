@@ -130,8 +130,8 @@ https://github.com/keioNishi/lec-mlsys/wiki
 - 学習内容において無償版と有償版の違いはなく、授業でも区別しません
   - 違うのは性能とインタフェースの一部だけで、基本機能は変わりません
 - 有償版の方が素早く課題を終えることができる可能性があります
-  - 有償版はより早いGPUを利用できる可能性が高いためです
-  - 有償版は1000円と少し/月(2022年12月調査)で利用できるため、かなりお得で、十分に利用価値があります
+  - 有償版はより早いGPUを利用できるためです
+  - 有償版(例えばColab Pro)は1,179円/月(2023年9月調査)で利用できるため、かなりお得で、十分に利用価値があります
 - 講義や課題で利用する場合は日中の利用を推奨します
   - 無償版では海外、特にアメリカが利用する日本の夜間は混雑する傾向があり、海外が夜間となる日中の時間帯が比較的空いています
   - 日中混雑して利用できなかったという報告を過去受けておらず、試験も滞りなく実施できています
@@ -146,7 +146,7 @@ https://github.com/keioNishi/lec-mlsys/wiki
 
 ## 個人PCへのCUDA環境の構築について
 
-テキストは、すべてGoogle Colaboratory上で実行することを想定しています
+テキストは、すべてColab上で実行することを想定しています
 
 しかしながら、Colabを利用すると様々な制約があることも事実です
 - 例えば、実行時間制限やファイルが消える、ブラウザを閉じることができないなど
@@ -261,13 +261,13 @@ conda install anaconda
 conda update --all
 ```
 
-最後に、授業で使う環境(名前はなんでもよいがlecture-ml > lecml)を作成します
+最後に、授業で使う環境(名前はなんでもよいがlecture-ml -> lecmlや機械学習システム -> mlsys)を作成します
 ```
-conda create -n lecml
+conda create -n mlsys
 ```
 以降、授業の内容を扱う時は最初に、  
 ```
-conda activate lecml
+conda activate mlsys
 ```
 として始めることになります  
 なお、`conda info -e`とすると、作った環境の一覧を見ることができます
@@ -277,21 +277,17 @@ conda activate lecml
 toolkitはCUDAバージョンを指定してインストールします
 - バージョンは`nvidia-smi`の右上に表示されます
 - 基本的には最新版を導入しますが、下記動作確認で失敗するようであればNightlyを導入する必要があるかもしれません
-  - 当方の環境はNightlyが必要でしたが、普通はstableを利用してください
 - かなり時間がかかります
 ```
 conda install -y pytorch torchvision torchaudio cudatoolkit=11.x -c pytorch -c nvidia
 もしくは
 conda install -y pytorch torchvision torchaudio cudatoolkit=11.x -c pytorch -c conda-forge
 ```
-ですが、今トライしているということは、比較的新しいGPUを持っているのではないかと思います  
-その場合は、Torch NightlyというPreview版が必要になる場合があります(3090は2022年9月時点でも必要です) 
-- 3090などsm_86アーキテクチャは11.6からサポートとなっています
 
+- 比較的新しいGPUや新しい機能を利用する場合は、Nightlyを利用します
 ```
 conda install -y pytorch torchvision torchaudio pytorch-cuda=11.x -c pytorch-nightly -c nvidia
 ```
-となります
 
 導入したら、次で動作を確認  
 ```
