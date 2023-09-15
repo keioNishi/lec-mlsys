@@ -100,8 +100,6 @@ https://github.com/keioNishi/lec-mlsys/wiki
 [![dataai-text-I-NLP-4-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/dataai-text-I-NLP-4-BERT.ipynb)
 - I-NLP-5-CLIP  
 [![dataai-text-I-NLP-5-CLIP.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/dataai-text-I-NLP-5-CLIP.ipynb)
-- I-NLP-CLIP  
-[![dataai-text-I-NLP-5-CLIP.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/dataai-text-I-NLP-5-CLIP.ipynb)
 - J-Transformer-ViT  
 [![dataai-text-J-Transformer-ViT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/dataai-text-J-Transformer-ViT.ipynb)
 - K-StyleGAN-1  
