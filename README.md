@@ -82,8 +82,10 @@ https://github.com/keioNishi/lec-mlsys/wiki
 [![mlsys-text-D-強化学習.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-D-強化学習.ipynb)
 - E-PyTorch-Advanced  
 [![mlsys-text-E-PyTorch-Advanced.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-E-PyTorch-Advanced.ipynb)
-- F-物体検出  
-[![mlsys-text-F-物体検出.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-F-物体検出.ipynb)
+- F-物体検出・分割-1  
+[![mlsys-text-F-物体検出・分割-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-F-物体検出・分割-1.ipynb)
+- F-物体検出・分割-2  
+[![mlsys-text-F-物体検出・分割-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-F-物体検出・分割-2.ipynb)
 - G-音声識別  
 [![mlsys-text-G-音声識別.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-G-音声識別.ipynb)
 - H-GAN-1  
@@ -108,6 +110,8 @@ https://github.com/keioNishi/lec-mlsys/wiki
 [![mlsys-text-K-StyleGAN-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-StyleGAN-2.ipynb)
 - K-StyleGAN-3  
 [![mlsys-text-K-StyleGAN-3.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-StyleGAN-3.ipynb)
+- K-StyleGAN-4  
+[![mlsys-text-K-StyleGAN-4.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-StyleGAN-4.ipynb)
 - L-Diffusion-1  
 [![mlsys-text-K-Diffusion-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-L-Diffusion-1.ipynb)
 - L-Diffusion-2  
@@ -116,12 +120,14 @@ https://github.com/keioNishi/lec-mlsys/wiki
 [![mlsys-text-M-ChatGPT-1-Basic.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-ChatGPT-1-Basic.ipynb)
 - M-ChatGPT-2-LangChain  
 [![mlsys-text-M-ChatGPT-2-LangChain.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-ChatGPT-2-LangChain.ipynb)
-- N-RWKV  
-[![mlsys-text-N-RWKV.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-N-RWKV.ipynb)
-- O-Federated  
-[![mlsys-text-O-Federated.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-O-Federated.ipynb)
-- P-AIの将来  
-[![mlsys-text-P-AIの将来.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-P-AIの将来.ipynb)
+- N-アプリ-transformer  
+[![mlsys-text-N-アプリ-transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-N-アプリ-transformer.ipynb)
+- O-RWKV  
+[![mlsys-text-O-RWKV.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-O-RWKV.ipynb)
+- P-Federated  
+[![mlsys-text-P-Federated.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-P-Federated.ipynb)
+- Q-AIの将来  
+[![mlsys-text-Q-AIの将来.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-Q-AIの将来.ipynb)
 ----
 
 ## Colabの利用形態ついて
