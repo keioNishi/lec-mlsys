@@ -49,7 +49,9 @@
 
 ----
 - ガイダンス  
-https://github.com/keioNishi/lec-mlsys/wiki
+  - https://github.com/keioNishi/lec-mlsys/Guidance-1.md
+  - https://github.com/keioNishi/lec-mlsys/Guidance-2.md
+  - https://github.com/keioNishi/lec-mlsys/Guidance-3.md
 - 1-準備  
 [![mlsys-text-1-準備.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-1-準備.ipynb)
 - 2-ML基礎  
