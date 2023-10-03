@@ -51,7 +51,7 @@
 - ガイダンス  
   - [歴史](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-1.md)
   - [基本](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-2.md)
-  - [現実](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-2.md)
+  - [現実](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-3.md)
 - 1-準備  
 [![mlsys-text-1-準備.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-1-準備.ipynb)
 - 2-ML基礎  
