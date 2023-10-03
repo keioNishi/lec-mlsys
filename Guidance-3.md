@@ -20,7 +20,7 @@
   - 一発で正解値を出すのは複雑すぎてほぼ無理
   - そこで次第に正しい値に近づける方針を取る
  
-<img src="http://class.west.sd.keio.ac.jp/dataai/text/guidance27.png">
+<img src="http://class.west.sd.keio.ac.jp/dataai/text/guidance27.png" width=500>
 
 ## そしてとんでもない世界へ
 
