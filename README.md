@@ -199,7 +199,7 @@ docker run --shm-size=512m --gpus=all -p 127.0.0.1:9000:8080 us-docker.pkg.dev/c
 wsl --install
 ```
   - Docker Desktopをインストールする
-公式サイト(https://www.docker.com/)からWindows版インストーラーをダウンロードしてインストール
+公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
 - Linuxの場合
   - Dockerをインストールする
 
