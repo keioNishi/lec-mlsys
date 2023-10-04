@@ -175,6 +175,54 @@
  - 推奨ではありませんが、以下を参考にしてトライしてみてください
  - WSL2を利用すれば、比較的容易に構築できるはずです
 
+### Colabをローカルで動作させたいだけならば
+
+#### エグイ環境を持っている恵まれている人の場合
+
+個人で所有しているのは、かなりヤバい人だと思うが、NVIDIA T4、V100、A100 GPUなどを所有している、もしくは、研究室や企業などでこれらが搭載されたマシンが利用できる場合は、単純に、自分のマシンにGoogleが提供するDockerコンテナを導入して実行するとよい
+
+[Googleによるローカルランタイムマニュアル](https://research.google.com/colaboratory/local-runtimes.html?hl=ja)を参照する
+
+- ColabのDockerランタイムイメージをインストールする  
+```
+docker run --shm-size=512m --gpus=all -p 127.0.0.1:9000:8080 us-docker.pkg.dev/colab-images/public/runtime
+```
+ここまできたら、「起動」に続く
+
+#### 普通の環境
+
+この場合、実はLinuxでもWindowsでも構わないのだが、DockerファイルからDockerコンテナを作成して、起動してしまえばよい
+
+- Windowsの場合
+  - WSLをインストールする
+```
+wsl --install
+```
+  - Docker Desktopをインストールする
+公式サイト(https://www.docker.com/)からWindows版インストーラーをダウンロードしてインストール
+- Linuxの場合
+  - Dockerをインストールする
+
+- このレポジトリのToolsにあるdocker-compose.ymlを利用してDockerコンテナを作成する
+- Toolsまで移動する
+- docker-composeを利用してコンテナを作成して起動する(なおwindowsではsudoは不要である)  
+```
+sudo docker-compose up -d
+```
+なお、docker-compose.ymlの中に、`- JUPYTER_TOKEN=2238522`とあるが、慶應矢上キャンパスの郵便番号であり、この番号がトークン番号となる
+
+ここまできたら、「起動」に続く
+
+#### 起動
+
+- コンテナが起動すると、認証に使用する初期バックエンド URL（「http://127.0.0.1:9000/?token=...」の形式）が含まれたメッセージが表示されるため、この URL を控えておく(コピーしておく)
+- Colab で、**接続** ボタンをクリックして **ローカル ランタイムに接続...** を選択する
+- 表示されたダイアログに、コピーしたURLを入力して [接続] ボタンをクリックする
+
+なお、ホスト名はlocalhostや127.0.0.1でなければならない点に注意すること
+
+これだけで解決し、Google Colaboratoryと全く同じ環境が手に入る
+
 ### CUDAのインストール
 
 インストール作業は、慣れない場合ほぼ丸一日作業となりますので注意してください
