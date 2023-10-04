@@ -303,16 +303,17 @@ $ python
 Python 3.10.8 (main, Nov 24 2022, 14:13:03) [GCC 11.2.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import torch
->>> print(torch.cuda.is_available)
-<function is_available at 0x7f59771869e0>
+Python 3.11.5 (main, Sep 11 2023, 13:54:46) [GCC 11.2.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import torch
 >>> print(torch.cuda.is_available())
 True
 >>> print(torch.cuda.get_device_name())
 NVIDIA GeForce RTX 4090
 >>> print(torch.version.cuda)
-11.7
+12.1
 >>> print(torch.cuda.get_arch_list())
-['sm_37', 'sm_50', 'sm_60', 'sm_61', 'sm_70', 'sm_75', 'sm_80', 'sm_86', 'compute_37']
+['sm_50', 'sm_60', 'sm_61', 'sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_90']
 >>> 
 ```
 などとなりますが、まず最初にTrueと出ればOK、出ない場合は、頑張って解決しましょう  
@@ -406,14 +407,6 @@ conda install -y tensorflow-gpu tensorflow-datasets tensorflow-hub -c conda-forg
 Colabはtensorboardが初めからインストールされており、テキストの最後の方で利用するため、ここで導入しておく
 ```
 pip install tensorboard
-```
-
-- 以下は対策して不要としています
-  - quilt
-これも、pythonのバージョンに厳しく、インストールが難しくなりつつあります
-```
-conda install -y -c conda-forge quilt
-quilt install --force ResidentMario/missingno_data
 ```
 
 ### 最後に
