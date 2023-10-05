@@ -301,7 +301,11 @@ sudo sh get-docker.sh
   - docker-composeを利用してコンテナを作成して起動する(なおwindowsではsudoは不要です)  
 ```
 sudo docker-compose up -d
-```  
+```
+もしくは、次のように実行する
+```
+sudo docker compose up -d
+```
 
 docker-compose.ymlの中に、`- JUPYTER_TOKEN=2238522`とあるが、慶應矢上キャンパスの郵便番号であり、この番号がトークン番号となります
 
