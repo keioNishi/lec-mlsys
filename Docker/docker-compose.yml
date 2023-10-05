@@ -1,0 +1,29 @@
+version: "3"
+
+services:
+  colab:
+    image: asia-docker.pkg.dev/colab-images/public/runtime
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+
+    build:
+      context: .
+      shm_size: '1gb'
+    shm_size: '1gb'
+
+    ports:
+      - "127.0.0.1:9000:8080"
+      - "0.0.0.0:7860:7860"
+
+    environment:
+      - JUPYTER_TOKEN=2238522
+
+    volumes:
+      - ./content:/content
+      - ./cache:/root/.cache
