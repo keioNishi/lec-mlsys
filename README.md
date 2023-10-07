@@ -273,7 +273,7 @@ Windows、Ubuntu、もしくは新しいPCを準備します
 curl -fsSL https://get.docker.com -o get-docker.sh 
 sudo sh get-docker.sh
 ```  
-としてインストールする
+としてインストールする  
   - nvidiaドライバを認識させるため、nvidia-container-runtimeを導入する
 ```
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -294,7 +294,7 @@ sudo reboot
   - WSLがインストールされていることを確認する(CUDAのインストールで導入済みのはず)
   - 公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
   - Windowsの場合は再起動不要
-
+  - なお、先にDockerを入れてしまっていた場合、エラーになる可能性があるので、手順通りにインストールすること
 
 ### Dockerランタイムの起動
 
