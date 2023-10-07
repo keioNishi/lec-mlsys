@@ -268,17 +268,13 @@ Windows、Ubuntu、もしくは新しいPCを準備します
 
 [Googleによるローカルランタイムマニュアル](https://research.google.com/colaboratory/local-runtimes.html?hl=ja)を参照する
 
-docker-composeせずとも、Googleが提供するデフォルトのColab Dockerコンテナイメージが利用できます
-
-- Dockerをインストールする
-  - Linuxの場合
+- **Linuxの場合**
 ```
 curl -fsSL https://get.docker.com -o get-docker.sh 
 sudo sh get-docker.sh
 ```  
 としてインストールする
-  
-- nvidiaドライバを認識させるため、nvidia-container-runtimeを導入する
+  - nvidiaドライバを認識させるため、nvidia-container-runtimeを導入する
 ```
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
   && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
@@ -287,26 +283,18 @@ curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dear
   && \
     sudo apt-get update
 sudo apt install nvidia-container-runtime
-```
-
+```  
 条件を満たせば、LinuxでもWindowsでも、DockerファイルからDockerコンテナを作成して、Colab環境を起動してしまえばよい
-
-- **Windowsの場合**
-  - WSLをインストールする
-```
-wsl --install
-```
-  - Windowsの場合  
-Docker Desktopをインストールする  
-公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
-
-- 再起動する
-
-Windowsの場合は再起動不要であろう
-
+  - 再起動する  
 ```
 sudo reboot
 ```
+
+- **Windowsの場合**  
+  - WSLがインストールされていることを確認する(CUDAのインストールで導入済みのはず)
+  - 公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
+  - Windowsの場合は再起動不要
+
 
 ### Dockerランタイムの起動
 
