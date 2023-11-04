@@ -505,7 +505,7 @@ pip install unidic-lite
 
 #### その他
 
-- tensorflowを入れる
+- tensorflowを入れる  
 これが、pythonのバージョン整合が厳しく、失敗することもありますが、授業では特に必須ではないためスキップしても構いません  
 さらに、tensorflowを入れることで、pytorchのアーキテクチャサポートが制限されるという現象から、tensorflow用の環境を別途clone作成してからインストールすることをお勧めします
 ```
