@@ -478,7 +478,7 @@ conda install -y -c conda-forge opencv
 
 ここまでインストールしたら、次の作業が2022.9時点で問題となる可能性が高く、環境を複製しておくことをお勧めします
 ```
-conda create -n lecmlbk --clone lecml
+conda create -n mlsysbk --clone mlsys
 ```
 
 #### 言語処理系ライブラリ
