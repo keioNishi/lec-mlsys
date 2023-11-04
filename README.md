@@ -529,7 +529,7 @@ pip install tensorboard
 ここまでインストールしたら、この環境を壊さないように、バックアップを取得しておきましょう
 - 動作しなくなったら、こちらで取得したlecmlbkというバックアップをリストアして利用するとよいです
 ```
-conda create -n lecmlbk --clone lecml
+conda create -n mlsysbk --clone mlsys
 ```
 
 ## おまけ
