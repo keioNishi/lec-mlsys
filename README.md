@@ -505,13 +505,13 @@ pip install unidic-lite
 
 #### その他
 
-- tensorflowを入れる  
+- tensorflowを導入する  
 これが、pythonのバージョン整合が厳しく、失敗することもありますが、授業では特に必須ではないためスキップしても構いません  
 さらに、tensorflowを入れることで、pytorchのアーキテクチャサポートが制限されるという現象から、tensorflow用の環境を別途clone作成してからインストールすることをお勧めします
 ```
 conda install -y tensorflow-gpu tensorflow-datasets tensorflow-hub
 ```
-ですが入らなくても特に困ることはありません。
+ですが入らなくても特に困ることはありません
 ```
 conda install -y tensorflow-gpu tensorflow-datasets tensorflow-hub -c conda-forge
 ```
@@ -519,7 +519,7 @@ conda install -y tensorflow-gpu tensorflow-datasets tensorflow-hub -c conda-forg
 なお、tensorflow-gpuさえ入ればなんとかなります
 
 - tensorboardも導入する  
-Colabはtensorboardが初めからインストールされており、テキストの最後の方で利用するため、ここで導入しておく
+Colabはtensorboardが初めからインストールされており、テキストの最後の方で利用するため、ここで導入します
 ```
 pip install tensorboard
 ```
@@ -532,80 +532,7 @@ pip install tensorboard
 conda create -n mlsysbk --clone mlsys
 ```
 
-## おまけ
-
-### jupyter AIを導入
-
-```
-pip install jupyter_ai jupyter_ai_magics openai huggingface_hub ipywidgets pillow
-```
-
-として導入、jupyter-aiを起動すると、jupyter同様に8888ポートで見えるようになる
-
-できることは次の通り
-
-- チャットできる
-      
-  - 左パネルにチャットのボタンが追加されており、ChatGPTと対話できる
-  - Language modelをOpenAI::gpt-4に、Embadding modelをOpenAI::text-embedding-ada-002などに設定する
-  - APIKEYを入力する(ここは有料です)
-
-- ノートブックについて問い合わせる
-      
-  - ノートブックのセルに対して範囲選択をすると、チャットエリアの下部にInclude selectionとReplace selectionが表示され、Include selectionを選択すると選択したコードを含んだ形で質問ができる
-  - Replace selectionを選択すると、選択したコードがチャットの回答で上書きされる(チャットの回答が正しい保障はない)
-
-- 追加で学習させる
-      
-これが強力で、embedding modelを用いることで、チャットが質問に答える際に自分が保有するドキュメントなどのローカルデータを含めるようにすることができる
-  - 例えば、docsというフォルダを作成し、その下に様々なドキュメントを入れ、チャット欄で、`/learn docs/`と入力することで学習させることができる(/learnがコマンド)
-  - この学習した内容に対して問い合わせる場合は`/ask "質問文章"`とする
-      
-- マジックコマンドを利用して、直接結果をセルに反映する
-      
-`%load_ext jupyter_ai_magics`として拡張機能をロードし、`%ai list`として、その一覧をみると様々な機能拡張が利用できることがわかる
-
-```
-%%ai openai:text-ada-001
-Write some JavaScript code that prints "hello world" to the console.
-```
-
-このようにmodel IDも指定してコマンドを使うことで、結果がmarkdown内に挿入され、`%%ai openai:text-ada-001 -f code`とすると、コードとして挿入される
-      
-- セルを参照することができる
-
-セルを参照することができるコマンドが存在するため、次のような指定ができる
-
-```
-%%ai openai:text-davinci-003 --format code
-The following Python code:
---
-{In[14]}
---
-produced the following Python error:
---
-{Err[14]}
---
-Please tell me the cause of the error.
-```
-
-- Stable Diffusionで画像生成
-
-なんてことはない
-
-```
-%%ai huggingface_hub:stabilityai/stable-diffusion-2-1 --format image
-It's an astronaut with a boombox
-```
-
-ちなみに、waifu-diffusionの場合は、次の通り
-
-```
-%%ai huggingface_hub:hakurei/waifu-diffusion --format image
-masterpiece, best quality, 1girl, green hair, sweater, looking at viewer, upper body, beanie, outdoors, watercolor, night, turtleneck
-```
-
-- ただし、日本語の対応はいまいちで今後のに期待
+## 補足
 
 ### wgetの導入
 
@@ -640,7 +567,9 @@ Google Colaboratoryに慣れている人は、ピュアなJupyter Notebookは使
 
 - 最初だけ、実行バッチファイルを作成する
 
-メモ帳でも、busyboxのviでもよいので、jupyterrun.batというファイルを作成します。中身は次の通りです
+メモ帳でも、busyboxのviでもよいので、jupyterrun.batというファイルを作成します
+
+中身は次の通りです
 ```
 jupyter notebook --no-browser --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0 --allow-root --ip=0.0.0.0 --NotebookApp.token=''
 ```
@@ -652,24 +581,28 @@ jupyter notebook --no-browser --App.allow_origin='https://colab.research.google.
 
 - 最初に一度jupyterrun.batを実行する
 
-ログが吐き出され動き出すはずです。これが動いている間は、複数のセッションが接続できます
+ログが吐き出しつつ起動し、複数のセッションが接続できるようになります
 
 - 普通にGoogle Colaboratoryでノートブックを開き、「接続」する際に、「ローカルランタイムに接続」を選択する
 
-http://localhost:8888/ バックエンドに指定されているはずですので、そのまま接続とします
+http://localhost:8888/ バックエンドに指定されているはずですので、そのまま接続とする
 
-これで、 Google Coalbを利用せず、自分の環境を利用するようになります。全ての制限が外れます。つまり、利用時間やセッションの制限はなくなり、ファイルが消えることもありません
+これで、 Google Coalbを利用せず、自分の環境を利用するようになり、様々な制限が外れます
+
+- つまり、利用時間やセッションの制限はなくなり、ファイルが消えることもありません
+
+Docker Containerを利用している場合は、そちらの内容に従ってください
 
 ## resolv.conf
 
-wslは、resolv.confを勝手に書き換えて、そのまま名前が解決できず接続できない環境を作ってしまいがちである
+wslは、resolv.confを勝手に書き換えて、そのまま名前が解決できず接続できない環境を作ってしまいがちです
 - `/etc/resolv.conf`を例えば`nameserver 8.8.8.8`などとすると動作する
-- このような現象が発生する場合は、以下の通りの修正で解決する
+- このような現象が発生する場合は、以下の通りの修正で解決することができます
 
-一般には、`rc.local`というファイルを生成することで、このファイルが起動時実行されることから、中に`/etc/resolv.con`を書き換えるように記述すればよいが、wslには`rc.local`を実行させる機能が備わっていない
+一般には、`rc.local`というファイルを生成することで、このファイルが起動時実行されることから、中に`/etc/resolv.con`を書き換えるように記述すればよいですが、wslには`rc.local`を実行させる機能が備わっていません
 
-しかしながら、wslが最初に`/sbin/mount -a`を実行することから、このときにrcファイルシステムをマウントするように設定し、`mount.rc`を呼び出させることで、`rc.local`と同じことができる
-- この中で`resolv.conf`を書き換えるという技を使う
+しかしながら、wslが最初に`/sbin/mount -a`を実行することから、このときにrcファイルシステムをマウントするように設定し、`mount.rc`を呼び出させることで、`rc.local`と同じことができるようになります
+- この中で`resolv.conf`を書き換える必要があるかもしれません
 
 手順は次の通り
 - まず、`none none rc defaults 0 0`という行を/etc/fstabに追加する
@@ -704,9 +637,9 @@ conda create -n copyenv --clone originenv
 
 ### Anacondaが最初に起動しないようにする
 
-また、Anacondaをインストールすると、(base)と表示されます。これが嫌という場合もあるかと思います。
+また、Anacondaをインストールすると、(base)と表示されます。これが嫌という場合もあるかと思います
 ```
 conda config --set auto_activate_base false
 ```
-として、デフォルトでbaseがactivateされないようにするとよいでしょう。ログインしなおすと(base)と表示されません。
+として、デフォルトでbaseがactivateされないようにするとよいでしょう。ログインしなおすと(base)と表示されません
 
