@@ -119,7 +119,7 @@
 - L-Diffusion-2  
 [![mlsys-text-K-Diffusion-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-L-Diffusion-2.ipynb)
 - M-ChatGPT-1-Basics  
-[![mlsys-text-M-ChatGPT-1-Basic.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-ChatGPT-1-Basic.ipynb)
+[![mlsys-text-M-ChatGPT-1-Basics.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-ChatGPT-1-Basics.ipynb)
 - M-ChatGPT-2-Application  
 [![mlsys-text-M-ChatGPT-2-Application.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-ChatGPT-2-Application.ipynb)
 - N-アプリ-transformer  
