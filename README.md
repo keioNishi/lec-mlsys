@@ -178,9 +178,9 @@
 まず、GPU環境を確認しよう
 
 - 個人で所有しているのは、かなりヤバい人ですが、NVIDIA T4、V100、A100、H100 GPUなどが自由に使える、もしくは、研究室や企業などでこれらが搭載されたマシンが利用できる場合は、単純に、自分のマシンにGoogleが提供するDockerコンテナが推奨する環境として導入し、Colabで実行可能なモデルをすべて実行できる
-- GPUメモリ20G以上の良いGPU(nVIDIA RTX 2080Ti/3090/3090Ti/4090/6000Ada/6000/A5500/A5000)を持っているならば、このテキストのコードを全て実行できる
+- GPUメモリ20G以上の良いGPU(nVIDIA RTX 2080Ti/3090/3090Ti/4090/6000Ada/6000/A5500/A5000など)を持っているならば、このテキストのコードを全て実行できる
   - さらに、最新GPUを所有している場合、ColabのA100に近い速度で処理できるようになる(ColabのA100は実機A100よりも遅い)
-- GPUメモリ16G以上のGPU(nVIDIA RTX 4080/4060Ti/4060A4000,Turing,Quadro GP100)であれば、テキストのコードの多くがそのまま動作する
+- GPUメモリ16G以上のGPU(nVIDIA RTX 4080/4060Ti/4060/A4000,Turing,Quadro GP100など)であれば、テキストのコードの多くがそのまま動作する
 - GPUメモリが12G以上のGPU(nVIDIA RTX 4070Ti/4070/3080/3060/2060など)であれば、さらに動作するテキストの数は少なくなるが、工夫することで(途中でエラーになった場合、つじつまを合わせて、途中から実行しなおすなど)、多くのテキストが動作するようになる
 - Radeonについては確認実績がないが、PyTorchでROCmバージョンを入手しインストールすることで利用でき、数多く動作報告も存在しているため、上記のGPUメモリサイズを参考に是非チャレンジしてほしい
 - それ以外のGPUの場合、多くのテキストが実行できないが、基本的なモデルは実行可能であろう 
@@ -445,7 +445,7 @@ jupyter nbextension enable --py widgetsnbextension
 
 #### condaで普通に導入
 
-なお、condaで入れていますが、-c conda-forge オプションが必要な場合もあります  
+condaで入れていますが、-c conda-forge オプションが必要な場合もあります  
 まずは、次で一気にいれてみます
 ```
 conda install -y numpy pandas matplotlib scikit-learn scikit-learn-intelex scikit-image python-graphviz pydotplus seaborn missingno lxml lightgbm xgboost ipywidgets requests beautifulsoup4 gensim keras
