@@ -105,7 +105,7 @@
 - I-NLP-5-CLIP  
 [![mlsys-text-I-NLP-5-CLIP.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-5-CLIP.ipynb)
 - J-Transformer-ViT  
-[![mlsys-text-J-Transformer-ViT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-Transformer-ViT.ipynb)
+[![mlsys-text-J-ViT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-ViT.ipynb)
 - K-StyleGAN-1  
 [![mlsys-text-K-StyleGAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-StyleGAN-1.ipynb)
 - K-StyleGAN-2  
