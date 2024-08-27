@@ -1,6 +1,6 @@
 [![レクチャーノートブック](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys)
-[![PyTorchバッジ](https://img.shields.io/badge/PyTorch->v1.0-232f3e.svg?style=flat)](https://pytorch.org/)
-[![Slackデータシステムの知能化とデザイン](https://img.shields.io/badge/Slack-keio--sd--mlsys-3f0f40.svg?style=flat)](https://keio-sd-mlsys.slack.com/)
+[![PyTorchバッジ](https://img.shields.io/badge/PyTorch->v2.0-232f3e.svg?style=flat)](https://pytorch.org/)
+[![Discord機械学習システム](https://img.shields.io/badge/Discord-keio--sd--mlsys-3f0f40.svg?style=flat)](https://discord.gg/vFKeE6fW)
 [![HIT-Academy](https://img.shields.io/badge/Slack-hitacademy--ml-3f0f40.svg?style=flat)](https://hitacademy-ml.slack.com/)
 
 # レクチャーノートブックについて
