@@ -333,6 +333,20 @@ docker-compose.ymlの中に、`- JUPYTER_TOKEN=2238522`とあるが、慶應矢�
 コンテナが起動すると、認証に使用する初期バックエンド URL（ http://127.0.0.1:9000/?token=... の形式）が含まれたメッセージが表示されるため、この URL を控えておく
 - わからなくても、変更していなければ2238522です
 
+#### docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]] と表示される
+
+原因不明であるが、2024年においてあるあるで、nvidia-container-runtimeを入れて設定し直す
+
+```
+sudo apt-get install nvidia-container-runtime
+curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey |   sudo apt-key add -
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list |   sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
+sudo apt-get update
+sudo apt-get install nvidia-container-runtime
+service docker restart
+```
+
 ### 接続
 
 - Colab で、**接続** ボタンをクリックして **ローカル ランタイムに接続...** を選択する
