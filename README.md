@@ -135,14 +135,19 @@
 # Colabの利用形態ついて
 - Colabは無料で利用できる無償版の他、有償版があります
   - 授業で扱う内容の確認や実行、課題・試験なども含めて、無償版で問題ありません
+  - ただし、昨今のインフレ状況下でColabの無料枠がかなり制限されており、無慮枠だけでは、制限により授業課題の遂行などが困難になる可能性があります
+  - また、無料枠を超えたことを理由とした、課題の遅延や未提出は認めませんので、この点もあらかじめ了承してください
 - 学習内容において無償版と有償版の違いはなく、授業でも区別しません
   - 違うのは性能とインタフェースの一部だけで、基本機能は変わりません
 - 有償版の方が素早く課題を終えることができる可能性があります
   - 有償版はより早いGPUを利用できるためです
-  - 有償版(例えばColab Pro)は1,179円/月(2023年9月調査)で利用できるため、かなりお得で、十分に利用価値があります
+  - 有償版(例えばColab Pro)は1,179円/月(2024年9月調査)で利用できるため、かなりお得で、十分に利用価値があります
+  - およそ全ての内容を自己確認し、かつ、工夫をして動作確認しつつ、全ての課題を解くという観点で、十分な課金です
+  - 不足する場合は、Pay As You Goを利用してください(1,179円で90日有効です)
+  - Colab Proで十分であり、Colab Pro+を利用する必要はありません
 - 講義や課題で利用する場合は日中の利用を推奨します
   - 無償版では海外、特にアメリカが利用する日本の夜間は混雑する傾向があり、海外が夜間となる日中の時間帯が比較的空いています
-  - 日中混雑して利用できなかったという報告を過去受けておらず、試験も滞りなく実施できています
+  - 日中混雑して利用できなかったという報告を過去受けておらず、試験も滞りなく実施できています(2024年は厳しいかもしれません)
 
 # 個人環境の利用について
 - 個人でNVIDIA製のGPUマシンを所有している場合は、Colab同様の環境を個人で構築して利用することができます
@@ -177,11 +182,11 @@
 
 まず、GPU環境を確認しよう
 
-- 個人で所有しているのは、かなりヤバい人ですが、NVIDIA T4、V100、A100、H100 GPUなどが自由に使える、もしくは、研究室や企業などでこれらが搭載されたマシンが利用できる場合は、単純に、自分のマシンにGoogleが提供するDockerコンテナが推奨する環境として導入し、Colabで実行可能なモデルをすべて実行できる
-- GPUメモリ20G以上の良いGPU(nVIDIA RTX 2080Ti/3090/3090Ti/4090/6000Ada/6000/A5500/A5000など)を持っているならば、このテキストのコードを全て実行できる
-  - さらに、最新GPUを所有している場合、ColabのA100に近い速度で処理できるようになる(ColabのA100は実機A100よりも遅い)
-- GPUメモリ16G以上のGPU(nVIDIA RTX 4080/4060Ti/4060/A4000,Turing,Quadro GP100など)であれば、テキストのコードの多くがそのまま動作する
-- GPUメモリが12G以上のGPU(nVIDIA RTX 4070Ti/4070/3080/3060/2060など)であれば、さらに動作するテキストの数は少なくなるが、工夫することで(途中でエラーになった場合、つじつまを合わせて、途中から実行しなおすなど)、多くのテキストが動作するようになる
+- 個人で所有しているのは、かなりヤバい人ですが、NVIDIA T4/V100/A100/A800/H100 GPUなどが自由に使える、もしくは、研究室や企業などでこれらが搭載されたマシンが利用できる場合は、単純に、自分のマシンにGoogleが提供するDockerコンテナが推奨する環境として導入し、Colabで実行可能なモデルを実行できます
+- GPUメモリ24G以上の良いGPU(nVIDIA RTX 4090/3090Ti/3090/4500Ada/A6000/A5500/5000Ada/6000Ada/6000/A5500/A5000 Tesla K80など)を持っているならば、このテキストのコードを全て実行できます
+  - さらに、最新GPUを所有している場合、ColabのA100に近い速度で処理できるようになります(ColabのA100は実機A100よりも遅い)
+- GPUメモリ16G以上のGPU(nVIDIA RTX 4080/4080Super/4080Ti/4060Ti(16G版)/A4000,Turing,Quadro GP100, RTX 4090 Laptopなど)であれば、テキストのコードの多くがそのまま動作します
+- GPUメモリが12G以上のGPU(nVIDIA RTX 4070Ti Super/4070Ti/4070Super/4070/3060/2060, RTX 4080 Laptopなど、RTX 2080Ti, TITAN V, TITAN X, GTX TITAN Xもここに含まれる)であれば、さらに動作するテキストの数は少なくなるが、工夫することで(途中でエラーになった場合、つじつまを合わせて、途中から実行しなおすなど)、多くのテキストが動作するようになる
 - Radeonについては確認実績がないが、PyTorchでROCmバージョンを入手しインストールすることで利用でき、数多く動作報告も存在しているため、上記のGPUメモリサイズを参考に是非チャレンジしてほしい
 - それ以外のGPUの場合、多くのテキストが実行できないが、基本的なモデルは実行可能であろう 
 
@@ -204,23 +209,22 @@ Windows、Ubuntu、もしくは新しいPCを準備します
   ```
   - NVIDIA Drivers for CUDA on WSL のインストール(WSL2を利用する場合はWSL専用のドライバがありますので注意してください)
     - Windowsで作業します
+    - [こちら](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)が参考になります
     - [こちら](https://developer.nvidia.com/cuda/wsl) からダウンロードしてください(リンクは変更されている可能性があります)
     - 所持しているGPUの型番が必要です
   - CUDA Toolkitをインストール
-    - [こちら](https://developer.nvidia.com/cuda-downloads) からダウンロードしてください(リンクは変更されている可能性があります)
+    - [こちら]([https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)) からダウンロードしてください(リンクは変更されている可能性があります)
     - WSL2の場合は、Linux, x86_64(環境に併せてください), WSL-Ubuntu, deb(network)を選択します(インストールしたバージョンも指定します)
     - 表示されるコマンドラインをWSL2 Ubuntuのコマンドラインに入力して実行します
 - Linuxマシンを新たに構築しインストールする場合について
-  - Ubuntu22.04.xをインストールします
+  - Ubuntu24.04.xをインストールします
   - **インストール時に、'Install third-party software ...' のチェックボックスをONにしてインストールします**
   - これだけで基本環境がすべて導入され、'nvidia-smi'が動作するようになります
-  - 念のため、build-essentialをインストール
-  ```
-  sudo apt install build-essential
-  ```
-  として開発ツール一式を一気に導入します
+  - Ubuntuのインストールそのものは、各種リンクを利用してください
+  - この後は、次の「構築済みのLinuxマシンへのインストールについて」に続いてください
 - 構築済みのLinuxマシンへのインストールについて
-  - 上記のように再インストールするとトラブルが少ないですが、必要に応じて以下の手順でインストールします
+  - 上記のように再インストールするとトラブルが少ないですが、構築済みのLinuxに導入することもできます
+  - まず、必要に応じて以下の手順でインストールします
   - build-essentialをインストール
   ```
   sudo apt install build-essential
@@ -230,10 +234,16 @@ Windows、Ubuntu、もしくは新しいPCを準備します
     - [こちら](https://developer.nvidia.com/cuda-downloads) からダウンロードしてください(リンクは変更されている可能性があります)
     - WSL2の場合は、Linux, x86_64(環境に併せてください), Ubuntu, deb(network)を選択します(インストールしたバージョンも指定します)
     - 表示されるコマンドラインをWSL2 Ubuntuのコマンドラインに入力して実行します
-  - Ubuntuの利用を推奨します
-    - Ubuntu20.04、22.04いずれも問題ありません
+  - Ubuntuをインストールします
+    - Ubuntu24.04か22.04を推奨します
+    - その他のDistributionは非推奨です
   - NVIDIAドライバーを導入  
-    - 通常は、以下のコマンドを入力して導入してください
+    - Ubuntuをインストールする際に自動的にインストールされているはずですので確認します
+    - 次のコマンドで、GPUの情報が表示されたら、次のドライバインストール手順はスキップしてください
+  ```
+  nvidia-smi
+  ```
+    - もし、上記に失敗したら、以下のコマンドを入力して導入してください
   ```
   sudo ubuntu-drivers list
   sudo ubuntu-drivers install 
@@ -253,7 +263,7 @@ Windows、Ubuntu、もしくは新しいPCを準備します
 
 以下、Ubuntu、Windows共に共通です
 - インストール環境の確認
-  - コマンドラインに以下のコマンドを入力して動作を確認してください  
+  - コマンドラインに以下のコマンドを入力して動作を確認してください[詳細はこちら](https://dev.classmethod.jp/articles/monitor-nvidia-gpu-usage-with-nvidia-smi-nvsmi/)  
 > nvidia-smi
 
 ## 単にColabをローカルで動作させたい場合
@@ -270,30 +280,24 @@ Windows、Ubuntu、もしくは新しいPCを準備します
 
 - **Linuxの場合**
 ```
+apt install -y curl
 curl -fsSL https://get.docker.com -o get-docker.sh 
 sudo sh get-docker.sh
 ```  
 としてインストールする  
   - nvidiaドライバを認識させるため、nvidia-container-runtimeを導入する
 ```
-curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
-  && curl -s -L https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | \
-    sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
-    sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list \
-  && \
-    sudo apt-get update
+curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | gpg --dearmor -o /usr/share/keyrings/nvidia-toolkit.gpg
+curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | tee /etc/apt/sources.list.d/nvidia-toolkit.list
+sed -i -e "s/^deb/deb \[signed-by=\/usr\/share\/keyrings\/nvidia-toolkit.gpg\]/g" /etc/apt/sources.list.d/nvidia-toolkit.list
+sudo apt-get update
 sudo apt install nvidia-container-runtime
 ```  
 条件を満たせば、LinuxでもWindowsでも、DockerファイルからDockerコンテナを作成して、Colab環境を起動してしまえばよい
-  - 再起動する  
-```
-sudo reboot
-```
 
 - **Windowsの場合**  
   - WSLがインストールされていることを確認する(CUDAのインストールで導入済みのはず)
   - 公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
-  - Windowsの場合は再起動不要
   - なお、先にDockerを入れてしまっていた場合、エラーになる可能性があるので、手順通りにインストールすること
 
 ### Dockerランタイムの起動
