@@ -546,16 +546,7 @@ wslは、resolv.confを勝手に書き換えて、そのまま名前が解決で
   
 実は、resolv.confを書き換える前にmount.rcが呼び出されてしまうため、sleepする必要がある
 
-# 注意
-
-## Anacondaの操作について
-
-一度動く環境ができたら、その環境を維持するため、`conda update --all`すらも避けるべきです
-- これで壊してしまった経験が何度かあります
-```
-conda create -n copyenv --clone originenv
-```
-として、環境をコピーしてから始めるとよいです
+## よく使うAnacondaコマンド
 
 その他、よく使うコマンドを紹介しておきます
 - `conda info -e`: 作った環境の一覧を表示
@@ -564,6 +555,8 @@ conda create -n copyenv --clone originenv
 - `conda create -n myenv python=3.7`: Python バージョンを指定して作成
 - `conda activate test`: 環境testの有効化
 - `conda deactivate`: 環境の無効化
+- `conda create -n copyenv --clone originenv`：originenvからcopyenvを作成
+
 
 ## Anacondaが最初に起動しないようにする
 
@@ -573,7 +566,7 @@ conda config --set auto_activate_base false
 ```
 として、デフォルトでbaseがactivateされないようにするとよいでしょう。ログインしなおすと(base)と表示されません
 
-## Dockerコマンド
+## よく使うDockerコマンド
 
 次のコマンドがよく利用されます
 
@@ -600,4 +593,17 @@ conda config --set auto_activate_base false
 - `docker compose stop`：アプリケーションを停止
 - `docker compose down`：アプリケーションを停止し、コンテナを削除
 - `docker compose restart`：アプリケーションの再起動
+
+
+# 注意
+
+## Anacondaの操作について
+
+一度動く環境ができたら、その環境を維持するため、`conda update --all`すらも避けるべきです
+- これで壊してしまった経験が何度かあります
+```
+conda create -n copyenv --clone originenv
+```
+として、環境をコピーしてからconda update --all を始めるとよいです
+
 
