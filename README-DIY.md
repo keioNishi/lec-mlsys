@@ -231,6 +231,13 @@ ig.toml
 
 もう一度、コンテナを起動して確認しなおすと、nvidia-smiが正しく動作することがわかります
 
+上記起動プロセスをもう一度行ってもよいですが、再起動を効率よく行うために、
+```
+docker compose restart
+```
+とすると簡単に再起動できます
+- ただし、docker-compose.ymlがある場所で実行してください
+
 ### 接続
 
 - Colab で、**接続** ボタンをクリックして **ローカル ランタイムに接続...** を選択する
@@ -570,8 +577,9 @@ conda config --set auto_activate_base false
 - `docker stop <コンテナID>`：コンテナを停止
 - `docker start <コンテナID>`：コンテナを起動する
 
-また、複数コンテナを簡単・効率的に管理・実行するためのdocker composeには、次のコマンドがよく利用されます
+また、複数コンテナを簡単・効率的に管理・実行するためのdocker composeには、次のコマンドがよく利用されます(docker-compose.ymlがある場所で実行してください)
 - `docker compose up -d`：compose.yamlファイルに基づきアプリケーションを起動、「-d」は、バックグラウンドでコンテナを起動するオプション
+- `docker compose stop`：アプリケーションを停止
 - `docker compose down`：アプリケーションを停止し、コンテナを削除
 - `docker compose restart`：アプリケーションの再起動
 
