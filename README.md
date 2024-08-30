@@ -323,7 +323,7 @@ windowsではsudoは不要です
 ```
 sudo docker-compose up -d
 ```
-もしくは、次のように実行する
+もしくは、次のように実行する(Docker/run.sh)
 ```
 sudo docker compose up -d
 ```
@@ -346,6 +346,40 @@ sudo apt-get update
 sudo apt-get install nvidia-container-runtime
 service docker restart
 ```
+
+#### シェルを繋いで動作確認
+
+コンテナが一つしか動いていない(上記の手順で素直にここまで来た)ならば、次の手順で接続(Docker/bash.sh_
+```
+sudo docker exec -i -t `sudo docker ps -l -q` /bin/bash
+```
+コンテナが複数動作している場合は、
+```
+sudo docker ps
+```
+として一覧を表示し、その中からコンテナID(16進数表示のID)を取得、
+```
+sudo docker exec -i -t コンテナID /bin/bash
+```
+とする
+
+次に、bashの中でnvidia-smiを起動して動作を確認する
+```
+nvidia-smi
+```
+ここで、Failed to initialize NVML: Unknown Errorと表示された場合は、次の対策を講じる
+
+まず、コンテナを停止させる(Docker/stop.sh)
+```
+sudo docker stop `sudo docker ps -l -q`
+```
+
+/etc/nvidia-container-runtime/confファイルのno-cgroupsのコメントを外す
+```
+sudo sed -i 's/#no-cgroups = false/no-cgroups = false/' /etc/nvidia-container-runtime/conf
+ig.toml
+```
+
 
 ### 接続
 
