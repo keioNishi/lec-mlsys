@@ -1,5 +1,3 @@
-version: "3"
-
 services:
   colab:
     image: asia-docker.pkg.dev/colab-images/public/runtime
