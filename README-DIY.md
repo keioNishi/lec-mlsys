@@ -153,7 +153,7 @@ sudo apt install nvidia-container-runtime
 
 ここで、次の2つの方法がある
 
-#### (方法1) ColabのDockerランタイムイメージをインストールして実行する
+#### (方法1) ColabのDockerランタイムイメージをインストールして実行する(非推奨)
 
 ```
 docker run --shm-size=1gb --gpus=all -p 127.0.0.1:9000:8080 us-docker.pkg.dev/colab-images/public/runtime
@@ -200,13 +200,27 @@ service docker restart
 
 コンテナが一つしか動いていない(上記の手順で素直にここまで来た)ならば、次の手順で接続(Docker/bash.sh)
 ```
+ sudo docker compose exec colab /bin/bash
+```
+もしくは、素のdockerコマンドで、
+```
 sudo docker exec -i -t `sudo docker ps -l -q` /bin/bash
 ```
 コンテナが複数動作している場合は、
 ```
+sudo docker compose ps
+```
+もしくは、素のdockerコマンドで、
+```
 sudo docker ps
 ```
-として一覧を表示し、その中からコンテナID(16進数表示のID)を取得、
+として一覧を表示
+
+docker composeでは、SERVICE名が直接利用できるが、素のdockerではコンテナIDが必要、そこでその中からコンテナID(16進数表示のID)を取得して利用
+```
+sudo docker exec コンテナSERVICE名 /bin/bash -i -t 
+```
+もしくは
 ```
 sudo docker exec -i -t コンテナID /bin/bash
 ```
@@ -219,6 +233,10 @@ nvidia-smi
 ここで、Failed to initialize NVML: Unknown Errorと表示された場合は、次の対策を講じる(この問題はそのうち解決されると思われます)
 
 まず、コンテナを停止させる(Docker/stop.sh)
+```
+sudo docker compose stop
+```
+もしくは
 ```
 sudo docker stop `sudo docker ps -l -q`
 ```
@@ -235,7 +253,7 @@ ig.toml
 ```
 docker compose restart
 ```
-とすると簡単に再起動できます
+とすると簡単に再起動できます(この場合はstartでもよい)
 - ただし、docker-compose.ymlがある場所で実行してください
 
 ### 接続
