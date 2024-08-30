@@ -549,6 +549,11 @@ conda config --set auto_activate_base false
 として、デフォルトでbaseがactivateされないようにするとよいでしょう。ログインしなおすと(base)と表示されません
 
 ## Dockerコマンド
+
+次のコマンドがよく利用されます
+
+ひとまず、ps, start, stop、さらには、rm, rmiを知っていれば問題ありません
+
 - `docker version`：Dockerのバージョン確認
 - `docker images`：Dockerイメージ一覧
 - `docker rmi <イメージID>`：Dockerイメージの削除
@@ -564,3 +569,9 @@ conda config --set auto_activate_base false
 - `docker login -u <コンテナレジストリのユーザー名> -p <コンテナレジストリのパスワード> <コンテナレジストリのログインサーバー>`：コンテナレジストリへログイン
 - `docker stop <コンテナID>`：コンテナを停止
 - `docker start <コンテナID>`：コンテナを起動する
+
+また、複数コンテナを簡単・効率的に管理・実行するためのdocker composeには、次のコマンドがよく利用されます
+- `docker compose up -d`：compose.yamlファイルに基づきアプリケーションを起動、「-d」は、バックグラウンドでコンテナを起動するオプション
+- `docker compose down`：アプリケーションを停止し、コンテナを削除
+- `docker compose restart`：アプリケーションの再起動
+
