@@ -437,9 +437,9 @@ pip install tensorboard
 conda create -n mlsysbk --clone mlsys
 ```
 
-## 補足
+# 補足
 
-### wgetの導入
+## wgetの導入
 
 中にはwgetなど、Linux系のコマンドを利用しています  
 Linux上で構築する場合は特に問題とはなりませんが、Windows上で構築するには、次の2つのLinuxで著名なコマンドラインツールを導入をしておくとよいでしょう
@@ -451,13 +451,13 @@ https://sourceforge.net/projects/gnuwin32/files/wget/1.11.4-1/wget-1.11.4-1-setu
 これを実行するだけです  
 ほかのアーキテクチャでも同様に、利用できるようにしてください
 
-### Gitの導入
+## Gitの導入
   
 GitHub環境を自身のマシンに導入する際には、ほぼ必須ともいえるツールです  
 特に、Windowsユーザの皆さんには、Git Bashの導入をお勧めします  
 Git Bashを導入することで、下記、busyboxの導入は不要になるといえます
 
-### busyboxの導入
+## busyboxの導入
 
 Git Bashを導入しない場合、Windowsでは、lsなどUnix系コマンドの実行はかなり厄介です(Windows11でかなり良くなりますが)  
 そこで、次のbusyboxの導入が検討されますが、お勧めではありません(https://frippery.org/files/busybox/busybox.exe)
@@ -521,9 +521,9 @@ wslは、resolv.confを勝手に書き換えて、そのまま名前が解決で
   
 実は、resolv.confを書き換える前にmount.rcが呼び出されてしまうため、sleepする必要がある
 
-## 注意
+# 注意
 
-### Anacondaの操作について
+## Anacondaの操作について
 
 一度動く環境ができたら、その環境を維持するため、`conda update --all`すらも避けるべきです
 - これで壊してしまった経験が何度かあります
@@ -540,10 +540,27 @@ conda create -n copyenv --clone originenv
 - `conda activate test`: 環境testの有効化
 - `conda deactivate`: 環境の無効化
 
-### Anacondaが最初に起動しないようにする
+## Anacondaが最初に起動しないようにする
 
 また、Anacondaをインストールすると、(base)と表示されます。これが嫌という場合もあるかと思います
 ```
 conda config --set auto_activate_base false
 ```
 として、デフォルトでbaseがactivateされないようにするとよいでしょう。ログインしなおすと(base)と表示されません
+
+## Dockerコマンド
+- `docker version`：Dockerのバージョン確認
+- `docker images`：Dockerイメージ一覧
+- `docker rmi <イメージID>`：Dockerイメージの削除
+- `docker rm <コンテナID>`：Dockerコンテナの削除
+- `docker ps -a`：すべてのDockerコンテナ状態確認
+- `docker ps`：現在起動中コンテナの確認
+- `docker exec -i -t <コンテナ名またはコンテナID> bash`：コンテナ内部に入るコマンド
+- `docker start <コンテナID>`：dockerを起動するコマンド
+- `docker commit <コンテナID> <コンテナイメージ名:タグ>`：docker commitによるイメージ作成
+- `docker run <起動オプション> <コンテナイメージ> <コンテナ起動時に実行するコマンド>`：docker runによるコンテナイメージからコンテナを起動
+- `docker pull <コンテナイメージの公開パス:タグ>`：docker pull によるコンテナイメージのダウンロード
+- `docker build -t <コンテナイメージ名:タグ> <Dockerfileが存在するディレクトリ>`：docker build コマンドを使ったコンテナイメージの作成
+- `docker login -u <コンテナレジストリのユーザー名> -p <コンテナレジストリのパスワード> <コンテナレジストリのログインサーバー>`：コンテナレジストリへログイン
+- `docker stop <コンテナID>`：コンテナを停止
+- `docker start <コンテナID>`：コンテナを起動する
