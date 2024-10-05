@@ -19,17 +19,19 @@
 - 相応のマシン管理、Linuxの知識が必要です
 
 なお、下記はWindows WSL2とUbuntu環境について記述しています
-- Ubuntu(20.04および22.04)の利用を強く推奨します
+- Ubuntu(24.04)の利用を推奨します
   - Ubuntu以外のLinuxディストリビューションでもインストール可能ですが、インストール方法は各自で確認してください
   - 現時点でUbuntu, wsl共に最新のRTX4090へのインストールはそれなりに問題が解決されています
-  - WSLではないWindows環境の利用は、特に新しいGPUを用いる場合は険しい道となる場合があり、また動作速度も遅いという報告があるため全く推奨されません
-- Windows上で動作するAnacondaを利用して構築することもできます
- - 推奨ではありませんが、以下を参考にしてトライしてみてください
- - WSL2を利用すれば、比較的容易に構築できるはずです
+  - WSLではないWindows環境の利用は、新GPUの利用では険しい道である一方で動作速度も遅いという報告があるため非推奨です
+- Windowsの場合はWSL2の利用を推奨します(このパターンが多いかとは思います)
+  - Ubuntuを直接インストールした場合とほぼ変わらない環境が構築できます
+- Anacondaを利用して構築することもできます(非推奨)
+ - Anacondaは商用利用できません
+ - Python3のvenvを使うことで、ほぼ問題ないはずです
+ - どうしても利用したい場合は、minicondaがよいでしょう
 
-## GPUの確認
-
-まず、GPU環境を確認しよう
+# GPUの確認
+まず、自身のGPU環境を確認しよう
 
 - 個人で所有しているのは、かなりヤバい人ですが、NVIDIA T4/V100/A100/A800/H100 GPUなどが自由に使える、もしくは、研究室や企業などでこれらが搭載されたマシンが利用できる場合は、単純に、自分のマシンにGoogleが提供するDockerコンテナが推奨する環境として導入し、Colabで実行可能なモデルを実行できます
 - GPUメモリ24G以上の良いGPU(nVIDIA RTX 4090/3090Ti/3090/4500Ada/A6000/A5500/5000Ada/6000Ada/6000/A5500/A5000 Tesla K80など)を持っているならば、このテキストのコードを全て実行できます
@@ -40,101 +42,95 @@
 - それ以外のGPUの場合、多くのテキストが実行できないが、基本的なモデルは実行可能であろう 
 
 
-## CUDAのインストール
-
+# インストール
 インストール作業は、慣れない場合ほぼ丸一日作業となりますので注意してください
 
-Windows、Ubuntu、もしくは新しいPCを準備します  
-以下、WindowsでWSLを用いて構築する場合、Linuxマシンを新たに構築する場合、インストール済みLinuxマシンに構築する場合の順に手順を説明します
-- Windowsマシンへのインストールについて
-  - WSL2をインストールします  
-    WSL2のインストールの詳細は検索して対応してください
-    - WSL2が動作するように設定を変更します
-    - 「Windows の機能の有効化または無効化」の」「Linux 用 Windows サブシステム」をONにします
-    - WSL2 Ubuntu-20.04 LTSのインストールします
-    - Windowsマークを右クリック→Windowsターミナル（管理者）を立ち上げ、次のコマンドを実行してUbuntuをインストールします
-  ```
-  wsl --install
-  ```
-  - NVIDIA Drivers for CUDA on WSL のインストール(WSL2を利用する場合はWSL専用のドライバがありますので注意してください)
-    - Windowsで作業します
-    - [こちら](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)が参考になります
-    - [こちら](https://developer.nvidia.com/cuda/wsl) からダウンロードしてください(リンクは変更されている可能性があります)
-    - 所持しているGPUの型番が必要です
-  - CUDA Toolkitをインストール
-    - [こちら]([https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)) からダウンロードしてください(リンクは変更されている可能性があります)
-    - WSL2の場合は、Linux, x86_64(環境に併せてください), WSL-Ubuntu, deb(network)を選択します(インストールしたバージョンも指定します)
-    - 表示されるコマンドラインをWSL2 Ubuntuのコマンドラインに入力して実行します
-- Linuxマシンを新たに構築しインストールする場合について
-  - Ubuntu24.04.xをインストールします
-  - **インストール時に、'Install third-party software ...' のチェックボックスをONにしてインストールします**
-  - これだけで基本環境がすべて導入され、'nvidia-smi'が動作するようになります
-  - Ubuntuのインストールそのものは、各種リンクを利用してください
-  - この後は、次の「構築済みのLinuxマシンへのインストールについて」に続いてください
-- 構築済みのLinuxマシンへのインストールについて
-  - 上記のように再インストールするとトラブルが少ないですが、構築済みのLinuxに導入することもできます
-  - まず、必要に応じて以下の手順でインストールします
-  - build-essentialをインストール
-  ```
-  sudo apt install build-essential
-  ```
-  として開発ツール一式を一気に導入します
-  - CUDA Toolkitをインストール
-    - [こちら](https://developer.nvidia.com/cuda-downloads) からダウンロードしてください(リンクは変更されている可能性があります)
-    - WSL2の場合は、Linux, x86_64(環境に併せてください), Ubuntu, deb(network)を選択します(インストールしたバージョンも指定します)
-    - 表示されるコマンドラインをWSL2 Ubuntuのコマンドラインに入力して実行します
-  - Ubuntuをインストールします
-    - Ubuntu24.04か22.04を推奨します
-    - その他のDistributionは非推奨です
-  - NVIDIAドライバーを導入  
-    - Ubuntuをインストールする際に自動的にインストールされているはずですので確認します
-    - 次のコマンドで、GPUの情報が表示されたら、次のドライバインストール手順はスキップしてください
-  ```
-  nvidia-smi
-  ```
-    - もし、上記に失敗したら、以下のコマンドを入力して導入してください
-  ```
-  sudo ubuntu-drivers list
-  sudo ubuntu-drivers install 
-  sudo reboot #再起動
-  ```
-    - うまくいかない場合は、GUIドライバ(X Windowsのドライバ)と競合している場合がありますので回避してください
-      なお、現状でこのケースに該当する例はほぼなく、失敗する場合は別に理由があると考えた方がよいです  
-    ```
-    sudo sh -c "cat << ETX > /etc/modprobe.d/blacklist-nouveau.conf
-    blacklist nouveau
-    options nouveau modeset=0
-    ETX" && cat /etc/modprobe.d/blacklist-nouveau.conf
-    sudo update-initramfs -u
-    sudo reboot
-    ```
-    として回避してください
+CUDAは、GPUを効率よく利用するためのnVIDIAが提供しているライブラリで、これがないと動作しません
 
-以下、Ubuntu、Windows共に共通です
-- インストール環境の確認
-  - コマンドラインに以下のコマンドを入力して動作を確認してください[詳細はこちら](https://dev.classmethod.jp/articles/monitor-nvidia-gpu-usage-with-nvidia-smi-nvsmi/)  
+- Windowsが動作しているPC、Ubuntuが動作しているPC、もしくは新しいPCを準備します  
+
+以下、WindowsでWSLを用いて構築する場合、Linuxマシンを新たに構築する場合、インストール済みのLinuxマシンに構築する場合の順に手順を説明します
+- 新しいPCがある場合は、Ubuntuのインストールをお勧めします
+
+## Windowsマシンへのインストールについて
+- WSL2をインストールします  
+  - WSL2が動作するように設定を変更します(WSL2のインストールの詳細は検索して対応してください)
+  - 「Windows の機能の有効化または無効化」の」「Linux 用 Windows サブシステム」をONにします
+  - WSL2 Ubuntu-20.04 LTSのインストールします
+  - Windowsマークを右クリック→Windowsターミナル（管理者）を立ち上げ、次のコマンドを実行してUbuntuをインストールします
+```
+wsl --install
+```
+- NVIDIA Drivers for CUDA on WSL のインストール(WSL2を利用する場合はWSL専用のドライバがありますので注意してください)
+  - 以下、Windowsで作業します([こちら](https://docs.nvidia.com/cuda/wsl-user-guide/index.html#abstract)が参考になります)
+  - [こちら](https://developer.nvidia.com/cuda/wsl) からダウンロードしてください(リンクは変更されている可能性があります)
+  - 所持しているGPUの型番が必要です
+- CUDA Toolkitをインストール
+  - [こちら]([https://developer.nvidia.com/cuda-downloads](https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local)) からダウンロードしてください(リンクは変更されている可能性があります)
+  - WSL2の場合は、Linux, x86_64(環境に併せてください), WSL-Ubuntu, deb(network)を選択します(インストールしたバージョンも指定します)
+  - 表示されるコマンドラインをWSL2 Ubuntuのコマンドラインに入力して実行します
+- 'nvidia-smi'を実行して、GPUを認識していることを確認してください
+  - なにか表のような、まともなメッセージが出たら認識されています
+- 開発ツール一式をbuild-essentialでインストール
+```
+sudo apt install build-essential
+```
+**この後は、次の「Docker環境の構築」に続いてください**
+
+## Linuxマシンを新たに構築しインストールする場合について
+- Ubuntu24.04.xをインストールします
+- **インストール時に、'Install third-party software ...' のチェックボックスをONにしてインストールします**
+- これだけで基本環境がすべて導入され、'nvidia-smi'が動作するようになります
+  - 'nvidia-smi'を実行して、GPUを認識していることを確認してください
+  - なにか表のような、まともなメッセージが出たら認識されています
+- Ubuntuのインストールそのものは、各種ネット情報を利用してください
+- ひとまずbuild-essentialをインストール
+```
+sudo apt install build-essential
+```
+**この後は、次の「Docker環境の構築」に続いてください**
+
+## 構築済みのLinuxマシンへのインストールについて
+上記のように再インストールするとトラブルが少ないですが、構築済みのLinuxに導入することもできます
+- まず、開発のためのツール一式をインストールします
+- build-essentialをインストール
+```
+sudo apt install build-essential
+```
+
+- CUDAを導入します
+  - [こちら](https://developer.nvidia.com/cuda-downloads) からダウンロードしてください(リンクは変更されている可能性があります)
+- NVIDIAドライバーを導入
+  - Ubuntuをインストールする際に自動的にインストールされているはずですので確認します
+  - 次のコマンドで、GPUの情報が表示されたら、次のドライバインストール手順はスキップできますが、最新にした方がトラブルが少ないです
+```
+nvidia-smi
+```
+- もし、上記に失敗したら、以下のコマンドを入力して導入してください
+```
+sudo ubuntu-drivers list
+sudo ubuntu-drivers install 
+sudo reboot #再起動
+```
+'nvidia-smi'が動作するようにしてください
+
+# Docker環境の構築
+## インストール環境の確認
+  - コマンドラインに以下のコマンドを入力して動作を確認してください[詳細はこちら](https://dev.classmethod.jp/articles/monitor-nvidia-gpu-usage-with-nvidia-smi-nvsmi/)
+  - 既に確認済みであればスキップして結構です
 > nvidia-smi
 
-## 単にColabをローカルで動作させたい場合
-
-専用に何かAI実行・実装環境を構築するのではなく、単純にColabと同じことがしたい、という場合は次の通り、比較的簡単に環境を構築できます
-
-下記の手順では、Colabと同様の仮想環境を構築します
-- 完全に一致するわけではないため、動作しないテキストコードも存在します
-- 正しく動作しないコードがある場合、極力動作するように改善する予定です
-
-### Dockerのインストール
-
+## Dockerのインストール
 [Googleによるローカルランタイムマニュアル](https://research.google.com/colaboratory/local-runtimes.html?hl=ja)を参照する
 
-- **Linuxの場合**
+### Linuxの場合
 ```
 apt install -y curl
 curl -fsSL https://get.docker.com -o get-docker.sh 
 sudo sh get-docker.sh
 ```  
 としてインストールする  
-  - nvidiaドライバを認識させるため、nvidia-container-runtimeを導入する
+- nvidiaドライバを認識させるため、nvidia-container-runtimeを導入する
 ```
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | gpg --dearmor -o /usr/share/keyrings/nvidia-toolkit.gpg
 curl -fsSL https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list | tee /etc/apt/sources.list.d/nvidia-toolkit.list
@@ -142,34 +138,32 @@ sed -i -e "s/^deb/deb \[signed-by=\/usr\/share\/keyrings\/nvidia-toolkit.gpg\]/g
 sudo apt-get update
 sudo apt install nvidia-container-runtime
 ```  
-条件を満たせば、LinuxでもWindowsでも、DockerファイルからDockerコンテナを作成して、Colab環境を起動してしまえばよい
 
-- **Windowsの場合**  
-  - WSLがインストールされていることを確認する(CUDAのインストールで導入済みのはず)
-  - 公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
-  - なお、先にDockerを入れてしまっていた場合、エラーになる可能性があるので、手順通りにインストールすること
+### Windowsの場合
+- WSLがインストールされていることを確認してください(CUDAのインストールで導入済みのはず)
+- 公式サイト( https://www.docker.com )からWindows版インストーラーをダウンロードしてインストール
+  - なお、先にDockerを入れてからCUDAを入れるとエラーになる可能性があるので、手順通りにインストールすること
 
-### Dockerランタイムの起動
+# Colab環境の構築
+専用に何かAI実行・実装環境を構築するのではなく、単純にColabと同じことがしたい、という場合は比較的簡単に環境を構築できます
 
-ここで、次の2つの方法がある
+ここでは、Colabと同様の仮想環境を構築します
+- 完全に一致するわけではないため、動作しないテキストコードも存在します
+- 正しく動作しないコードがある場合、極力動作するように改善する予定です
 
-#### (方法1) ColabのDockerランタイムイメージをインストールして実行する(非推奨)
+## Dockerランタイムの起動
 
-```
-docker run --shm-size=1gb --gpus=all -p 127.0.0.1:9000:8080 us-docker.pkg.dev/colab-images/public/runtime
-```
-`--shm-size=1gb` は、dockerコンテナの/dev/shmのサイズを増やすために必要であり、これを忘れるとデータローダなどで実行できない
-- Bus Errorが発生する場合がある
+ここで、次の2つの方法ががあります
 
-
-#### (方法2) docker-composeを利用して専用イメージを利用する(お勧め)
+### (方法1) docker-composeを利用して専用イメージを利用する(お勧め)
 
 - Githubからテキスト全体をcloneして入手する、このテキストのレポジトリについて、Dockerディレクトリに移動する
 
-- Dockerディレクトリにあるdocker-compose.ymlを利用してDockerコンテナを作成して起動する
+- lec-mlsysの中のDockerディレクトリにあるdocker-compose.ymlを利用してDockerコンテナを作成して起動する
 
 windowsではsudoは不要です
 ```
+cd lec-mlsys/Docker
 sudo docker-compose up -d
 ```
 もしくは、次のように実行する(Docker/run.sh)
@@ -182,31 +176,51 @@ docker-compose.ymlの中に、`- JUPYTER_TOKEN=2238522`とあるが、慶應矢�
 コンテナが起動すると、認証に使用する初期バックエンド URL（ http://127.0.0.1:9000/?token=... の形式）が含まれたメッセージが表示されるため、この URL を控えておく
 - わからなくても、変更していなければ2238522です
 
-#### docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]] と表示される
+### docker: Error response from daemon: could not select device driver "" with capabilities: [[gpu]] と表示される
 
-原因不明であるが、2024年においてあるあるで、nvidia-container-runtimeを入れて設定し直す
+原因不明であるが、あるある問題でnvidia-container-runtimeを入れて設定し直す
+- 24.04の最新を導入する場合はこの問題は発生しません
 
 ```
-sudo apt-get install nvidia-container-runtime
+sudo su
+apt install nvidia-container-runtime
 curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey |   sudo apt-key add -
 distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
 curl -s -L https://nvidia.github.io/nvidia-container-runtime/$distribution/nvidia-container-runtime.list |   sudo tee /etc/apt/sources.list.d/nvidia-container-runtime.list
-sudo apt-get update
-sudo apt-get install nvidia-container-runtime
+apt update
+apt install nvidia-container-runtime
 service docker restart
 ```
+最後にsuから抜けるため、'exit'しておくこと
 
-#### シェルを繋いで動作確認
+### (方法2) ColabのDockerランタイムイメージをインストールして実行する(非推奨)
 
-コンテナが一つしか動いていない(上記の手順で素直にここまで来た)ならば、次の手順で接続(Docker/bash.sh)
 ```
- sudo docker compose exec colab /bin/bash
+docker run --shm-size=1gb --gpus=all -p 127.0.0.1:9000:8080 us-docker.pkg.dev/colab-images/public/runtime
+```
+`--shm-size=1gb` は、dockerコンテナの/dev/shmのサイズを増やすために必要であり、これを忘れるとデータローダなどで実行できない
+  - 指定を忘れると、Bus Errorが発生する場合がある
+
+## シェルを繋いで動作確認
+
+### コンテナが一つしか動いていない(上記の手順で素直にここまで来た)場合
+
+次の手順で接続(Docker/bash.sh)します
+```
+sudo docker compose exec colab /bin/bash
 ```
 もしくは、素のdockerコマンドで、
 ```
 sudo docker exec -i -t `sudo docker ps -l -q` /bin/bash
 ```
-コンテナが複数動作している場合は、
+
+これで、構築したcolab環境のシェルに入ることができます
+
+### コンテナが複数動作している場合
+
+既にコンテナを利用していて、複数動作している場合は、Colabを指定する必要があります
+
+- コンテナ一覧の取得
 ```
 sudo docker compose ps
 ```
@@ -216,6 +230,7 @@ sudo docker ps
 ```
 として一覧を表示
 
+- コンテナ名を指定してログイン
 docker composeでは、SERVICE名が直接利用できるが、素のdockerではコンテナIDが必要、そこでその中からコンテナID(16進数表示のID)を取得して利用
 ```
 sudo docker exec コンテナSERVICE名 /bin/bash -i -t 
@@ -226,13 +241,16 @@ sudo docker exec -i -t コンテナID /bin/bash
 ```
 とする
 
+- 動作確認
 次に、bashの中でnvidia-smiを起動して動作を確認する
 ```
 nvidia-smi
 ```
 ここで、Failed to initialize NVML: Unknown Errorと表示された場合は、次の対策を講じる(この問題はそのうち解決されると思われます)
 
-まず、コンテナを停止させる(Docker/stop.sh)
+- "MVMLのUnknown Error"の対応
+
+まず、コンテナを停止させます(Docker/stop.sh)
 ```
 sudo docker compose stop
 ```
@@ -256,15 +274,15 @@ docker compose restart
 とすると簡単に再起動できます(この場合はstartでもよい)
 - ただし、docker-compose.ymlがある場所で実行してください
 
-### 接続
+# Colabへの接続
 
-- Colab で、**接続** ボタンをクリックして **ローカル ランタイムに接続...** を選択する
+- Colab で、**接続** ボタンをクリックして **ローカル ランタイムに接続...** を選択
 - 表示されたダイアログに、コピーしたURL( http://localhost:9000/?token=2238522 )を入力して [接続] ボタンをクリック
   - なお、ホスト名はlocalhostや127.0.0.1でなければならない点に注意すること
   - `--shm-size`オプションは、docker-compose.ymlの中で拡大するように記述しているため不要です
-- リモートにあるColabホストにアクセスする場合は、sshのポートフォワードを利用し、'ssh ユーザ名@ホスト名 -L 9000:localhost:9000'などとして、リモートのホストに転送すること
+- リモートにあるColabホストにアクセスする場合は、sshのポートフォワードを利用し、'ssh ユーザ名@ホスト名 -L 9000:localhost:9000'などとして、リモートのホストに転送
 
-これだけで解決し、Google Colaboratoryと全く同じ環境が手に入ります
+以上でGoogle Colaboratoryと全く同じ環境が手に入ります
 
 次のような注意点があります
 - gradioなど、別途ポートを利用するライブラリなどを利用する場合は、工夫が必要です
@@ -274,7 +292,9 @@ docker compose restart
 - google colab専用の命令、例えば`from google.colab`などは、ライブラリを読み込み可能であるが、実行時にエラーとなります
   - `runtime.unassign()`などでエラーとなります
 
-## 専用の環境を構築したい場合
+以上で終了です
+
+# 専用の環境を構築したい場合
 
 CUDAをインストールした後、以下のインストールを行います
 - こちらはいばらの道です
@@ -283,11 +303,43 @@ CUDAをインストールした後、以下のインストールを行います
 - 正しく動作しないコードがある場合、極力動作するように改善する予定です
   - ご報告お待ちしております
 
-### Anacondaのインストール
+## 仮想環境でpythonを動かす
 
 ここから先はWindowsのWSLとLinux Ubuntuで共通です
-- [Anacondaのサイト](https://anaconda.com)からインストール用スクリプトをダウンロード
-  - Linux 64-Bit(x86) Installer を選択 
+
+### venvを使う(推奨)
+
+Ubuntu24.04では次を実行してvenvを導入します
+
+```
+sudo apt install python3.8-venv
+```
+
+次に、venvを使って仮想環境を作成します
+- 実際にはフォルダが作成され、その中に環境が構築されます
+- ここまでで、/home/ユーザ名/lec-mlsysができているはずです。
+
+```
+cd ~/
+python3 -m venv "lec-mlsys"
+```
+として、そのフォルダをのものを仮想環境にします
+
+インストールできたら、lec-mlsysに入り、
+```
+. bin/activate
+```
+もしくは
+```
+soure bin/activate
+```
+
+### Anacondaもしくはminicondaを利用する(非推奨)
+
+Anacondaは商用利用できないため、通常はminicondaを導入してください
+
+- [Anacondaのサイト](https://anaconda.com)からインストール用Anacondaもしくはminicondaスクリプトをダウンロード
+  - Linux 64-Bit(x86) Installer を選択
 - インストール用スクリプトを実行、誰々は自身のアカウント名に変更  
 ```
 bash /mnt/c/Users/誰々/Downloads/Anaconda3-インストールバージョン-Linux-x86_64.sh
@@ -298,7 +350,10 @@ sh ./Downloads/Anaconda3-インストールバージョン-Linux-x86_64.sh
 ```
 source ~/.bashrc
 ```
-
+もしくは
+```
+. ~/.bashrc
+```
 Anaconda環境を更新します
 - しばらく利用すると更新が必要になることもあります
 - 以下の方法は、あとから再実行して更新することができます
@@ -320,7 +375,8 @@ conda activate mlsys
 として始めることになります  
 なお、`conda info -e`とすると、作った環境の一覧を見ることができます
 
-### Pytorhをインストールする
+## Pytorhをインストールする
+
 まずは[pytorchのホームぺージ](https://pytorch.org/)に行きます
 toolkitはCUDAバージョンを指定してインストールします
 - バージョンは`nvidia-smi`の右上に表示されます
@@ -332,7 +388,7 @@ conda install -y pytorch torchvision torchaudio cudatoolkit=11.x -c pytorch -c n
 conda install -y pytorch torchvision torchaudio cudatoolkit=11.x -c pytorch -c conda-forge
 ```
 
-- 比較的新しいGPUや新しい機能を利用する場合は、Nightlyを利用します
+- 比較的新しいGPUや新しい機能を利用する場合は、Nightlyを利用します(現状で必要はありません)
 ```
 conda install -y pytorch torchvision torchaudio pytorch-cuda=11.x -c pytorch-nightly -c nvidia
 ```
@@ -362,7 +418,7 @@ NVIDIA GeForce RTX 4090
 最後の一覧に、所有しているGPUのアーキテクチャが含まれていれば、サポートされています
 - なくても動作していましたし、それなりに計算速度も速くなるようです
 
-### Jupyter Notebookをインストール
+## Jupyter Notebookをインストール
 Google Colaboratoryと協調動作させることや、Colabなしでもテキストの閲覧と実行ができるようになります  
 ```
 conda install -y jupyter
@@ -371,9 +427,9 @@ jupyter serverextension enable --py jupyter_http_over_ws
 jupyter nbextension enable --py widgetsnbextension
 ```
 
-### 授業で利用するライブラリをインストール
+## 授業で利用するライブラリをインストール
 
-#### condaで普通に導入
+### condaで普通に導入
 
 condaで入れていますが、-c conda-forge オプションが必要な場合もあります  
 まずは、次で一気にいれてみます
@@ -384,7 +440,7 @@ conda install -y numpy pandas matplotlib scikit-learn scikit-learn-intelex sciki
 - このような場合、baseでconda update condaとしてcondaを更新するのも一つの手ですが、環境は人によって異なるため、とにかくもがいてください
 - 問題が解決しない場合、anacondaをきれいに最初から入れなおすのが良いと思います
 
-#### conda-forgeを利用して導入
+### conda-forgeを利用して導入
 
 確認において、conda-forgeの利用が必要なライブラリは以下の通りです
 - かなり先で使いますので無理にインストールする必要はありません
@@ -392,7 +448,7 @@ conda install -y numpy pandas matplotlib scikit-learn scikit-learn-intelex sciki
 conda install -y -c conda-forge librosa
 ```
 
-#### pipを利用して導入
+### pipを利用して導入
 
 - OpenCVをインストール
 今は、これで入るはずです
@@ -411,7 +467,7 @@ conda install -y -c conda-forge opencv
 conda create -n mlsysbk --clone mlsys
 ```
 
-#### 言語処理系ライブラリ
+### 言語処理系ライブラリ
 
 - pytorch関連
   - 2022年9月時点で、最新のGPU(3090系など)を利用している場合、インストールにより必要な`sm_84`未対応のグレードダウンしたpytorchがインストールされますので、避けた方がよく、その場合テキストの一部で動作できない記述が発生します
@@ -433,7 +489,7 @@ pip install unidic-lite
 
 - テキストの中も相当数追加していますので注意してください
 
-#### その他
+### その他
 
 - tensorflowを導入する  
 これが、pythonのバージョン整合が厳しく、失敗することもありますが、授業では特に必須ではないためスキップしても構いません  
@@ -454,12 +510,56 @@ Colabはtensorboardが初めからインストールされており、テキス�
 pip install tensorboard
 ```
 
-## 最後に
+# 最後に
 
 ここまでインストールしたら、この環境を壊さないように、バックアップを取得しておきましょう
 - 動作しなくなったら、こちらで取得したlecmlbkというバックアップをリストアして利用するとよいです
+
+## condaの場合
 ```
 conda create -n mlsysbk --clone mlsys
+```
+
+## venvの場合
+
+venvはこれが厄介です
+
+### パッケージ一覧の取得
+```
+pip freeze > requirements.txt
+```
+としてインストールされたパッケージ一覧を取得
+
+### 新環境のフォルダを作成
+複製先で仮想環境(例えばsub)を構築
+```
+mkdir sub
+cd sub
+```
+### 仮想環境を構築
+```
+python -m venv [仮想環境名]
+```
+### 仮想環境を有効化
+```
+source /bin/active
+```
+もしくは
+```
+. bin/activate
+```
+### subに requirements.txt を配置
+
+先ほど作成した requirements.txt をこちらに'mv'します
+
+### パッケージをインストール
+パッケージを requirements.txt を用いてインストールします
+```
+pip install -r requirements.txt
+```
+### インストールされたパッケージを表示・確認
+```
+pip freeze
 ```
 
 # 補足
@@ -594,6 +694,17 @@ conda config --set auto_activate_base false
 - `docker compose down`：アプリケーションを停止し、コンテナを削除
 - `docker compose restart`：アプリケーションの再起動
 
+## wslに導入した仮想環境の削除
+
+windowsコマンドラインで、
+```
+wsl -l -v
+```
+として一覧を表示し、
+```
+wsl --unregister 削除する環境名
+```
+で削除します
 
 # 注意
 
@@ -605,5 +716,3 @@ conda config --set auto_activate_base false
 conda create -n copyenv --clone originenv
 ```
 として、環境をコピーしてからconda update --all を始めるとよいです
-
-
