@@ -44,4 +44,26 @@ services:
 EOF
 
 echo "Starting Google Colab container with GPU support..."
-docker compose up -d
+# Support both Docker Compose V2 ("docker compose") and V1 ("docker-compose").
+if docker compose version &> /dev/null; then
+    compose_cmd="docker compose"
+elif command -v docker-compose &> /dev/null; then
+    compose_cmd="docker-compose"
+else
+    echo "Error: Docker Compose is not available (tried 'docker compose' and 'docker-compose')."
+    exit 1
+fi
+
+# Some environments require sudo even when the user is in the docker group.
+if ! docker info &> /dev/null; then
+    if sudo docker info &> /dev/null; then
+        echo "Docker requires sudo in this environment; retrying with sudo."
+        compose_cmd="sudo $compose_cmd"
+    else
+        echo "Error: Cannot access the Docker daemon. Is it running?"
+        echo "Try: sudo $compose_cmd up -d"
+        exit 1
+    fi
+fi
+
+$compose_cmd up -d
