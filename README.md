@@ -62,7 +62,7 @@
   - [歴史](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-1.md)
   - [基本](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-2.md)
   - [現実](https://github.com/keioNishi/lec-mlsys/blob/main/Guidance-3.md)
-- 参考資料　
+- 参考資料　  
   - [個人環境の構築](https://github.com/keioNishi/lec-mlsys/blob/main/README-DIY.md)
 - 1-準備  
 [![mlsys-text-1-準備.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-1-準備.ipynb)
@@ -112,12 +112,14 @@
 [![mlsys-text-I-NLP-2-AttenSAGS2S.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-2-AttenSAGS2S.ipynb)
 - I-NLP-3-Transformer  
 [![mlsys-text-I-NLP-3-Transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-3-Transformer.ipynb)
-- I-NLP-4-BERT  
-[![mlsys-text-I-NLP-4-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-4-BERT.ipynb)
-- I-NLP-5-CLIP  
-[![mlsys-text-I-NLP-5-CLIP.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-5-CLIP.ipynb)
-- J-Transformer-ViT  
-[![mlsys-text-J-ViT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-ViT.ipynb)
+- I-NLP-4-Transformer-full  
+[![mlsys-text-I-NLP-4-Transformer-full.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-4-Transformer-full.ipynb)
+- I-NLP-5-BERT  
+[![mlsys-text-I-NLP-5-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-5-BERT.ipynb)
+- I-NLP-6-CLIP-GD  
+[![mlsys-text-I-NLP-6-CLIP-GD.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-6-CLIP-GD.ipynb)
+- J-ViT-US  
+[![mlsys-text-J-ViT-US.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-ViT-US.ipynb)
 - K-StyleGAN-1  
 [![mlsys-text-K-StyleGAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-StyleGAN-1.ipynb)
 - K-StyleGAN-2  
@@ -140,6 +142,8 @@
 [![mlsys-text-N-アプリ-transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-N-アプリ-transformer.ipynb)
 - O-RWKV  
 [![mlsys-text-O-RWKV.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-O-RWKV.ipynb)
+- O-RWKV-Learning  
+[![mlsys-text-O-RWKV-Learning.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-O-RWKV-Learning.ipynb)
 - P-Federated  
 [![mlsys-text-P-Federated.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-P-Federated.ipynb)
 - Q-AIの将来  
