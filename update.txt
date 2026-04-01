@@ -1,0 +1,1154 @@
+mlsys-text-G-音声識別.ipynb (2026-03-31)
+==================================================
+
+■ 内容の刷新
+- Cell 42（Demucs）: Whisper（OpenAI, 2022）、HuBERT（Meta AI, 2021）、HTDemucs/Bandit/BSRoformerなど音源分離の最新動向を追加
+
+■ 参考文献セクションの追加
+- Cell 56（新規）: 7件の参考文献を追加
+  Piczak (2015), Hershey et al. (2017), Défossez et al. (2019),
+  Hsu et al. (2021), Rouard et al. (2023), Radford et al. (2023),
+  Luo et al. (2023)
+
+■ 技術用語の誤り訂正
+- Cell 18: 「強化学習」→「転移学習（ファインチューニング）」（ResNet利用はファインチューニングであり強化学習ではない）
+
+■ 用語統一
+- Cell 2、3、26、32: 「メルスペクトグラム」→「メルスペクトログラム」に統一（4セル）
+- Cell 35: 「メルスペクトラム」→「メルスペクトログラム」
+
+■ タイポ・文法修正
+- Cell 0: 「二コラ・テスラ」→「ニコラ・テスラ」（漢字の二→カタカナのニ）
+- Cell 5: Markdownテーブル行頭の`|`補完（雌鶏の行）
+- Cell 16: 「メルスペクトログラム呼ぶ」→「メルスペクトログラムと呼ぶ」（助詞「と」脱落）
+- Cell 32: `$lop\_len$` → `$hop\_len$`
+- Cell 39: 「ホワイトノイズののった」→「ホワイトノイズの乗った」
+- Cell 42: 「ドメインが各音源」→「どのドメインが各音源」（「どの」脱落）
+- Cell 43: 「適応させて」→「適用させて」
+
+■ 数式修正
+- Cell 12: `mel=2595.0log10(...)` → `mel = 2595.0 \times \log_{10}(...)` （乗算記号追加）
+- Cell 12: `44100Hzx0.8s` → `44100Hz \times 0.8s`
+
+■ コードの誤り訂正
+- Cell 20: pretrained=True → weights=ResNet34_Weights.DEFAULT（非推奨APIの更新）
+- Cell 27: samping → sampling（スペルミス）
+
+■ 句読点
+- Cell 1、3、23: 「。」排除（3箇所）
+
+■ 画像
+- 全4件の画像URLのリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-A-RNN.ipynb (2026-03-31)
+====================================
+
+■ 内容の刷新
+- Cell 1（導入部）: RNN的逐次処理の再評価（Mamba，xLSTM，RWKV等の登場）について追記
+- Cell 4（RNN応用例）: 新世代モデル（SSM，xLSTM，RWKV）の概要を末尾に追加
+- Cell 31（LSTMの種類と比較）: xLSTM(Beck et al.，2024)の紹介を追加（指数ゲーティング，行列メモリ）
+- Cell 111（GRUの構造）: Cho et al.(2014)，Chung et al.(2014)の引用を明記，パラメータ効率の利点を追記
+- Cell 153（Interoperable Learning）: 大幅刷新 — Mamba/S4/Mamba-2，RWKV-5/6/7，xLSTM，Griffin，RetNet，TTT，Linear Attentionを体系的に整理
+
+■ 参考文献セクションの追加
+- Cell 155（新規）: 12件の参考文献を追加
+  Hochreiter & Schmidhuber (1997), Cho et al. (2014), Chung et al. (2014),
+  Greff et al. (2015), Gu et al. (2022), Peng et al. (2023),
+  Gu & Dao (2023), Sun et al. (2023), Beck et al. (2024),
+  Dao & Gu (2024), De et al. (2024), Sun et al. (2024)
+
+■ 句読点の統一
+- 全マークダウンセルの「、」を「，」に統一（68セル）
+- Cell 29，42の「。」を排除し体言止め/「である」に修正
+- Cell 56のコードブロック内引用テキストの「。」は原文保持
+
+■ タイポ修正
+- Cell 42: LSNM → LSTM に修正
+
+■ 画像
+- 既存の画像URL（http://class.west.sd.keio.ac.jp/dataai/text/ 配下）は全てそのまま保持
+- 新規画像の追加なし
+
+
+mlsys-text-B-AutoEncoder.ipynb (2026-03-31)
+============================================
+
+■ 内容の刷新
+- Cell 1（AutoEncoder導入）: 現代の生成モデルとの関係を追記（VQ-VAE，Latent Diffusion，MAE）
+- Cell 72（VAE）: Kingma & Welling(2014)の引用を明記，VQ-VAE/VQ-VAE-2/DALL-Eへの発展を追記
+- Cell 101（Interoperable Learning）: 大幅刷新 — CLIP，Latent Diffusion/Stable Diffusion，MAEを体系的に整理
+
+■ 参考文献セクションの追加
+- Cell 103（新規）: 9件の参考文献を追加
+  Kingma & Welling (2014), Sohn et al. (2015), Van Den Oord et al. (2017),
+  Razavi et al. (2019), Ramesh et al. (2021), Radford et al. (2021),
+  He et al. (2022), Rombach et al. (2022), Van der Maaten & Hinton (2008)
+
+■ 句読点の統一
+- 全マークダウンセルの「、」を「，」に統一（54セル）
+- Cell 0，5，17，24，25，32の「。」を排除
+
+■ 画像
+- 全13件の画像URLのリンク切れなし（全てHTTP 200）
+- 新規画像の追加なし
+
+
+mlsys-text-9-CNN.ipynb (2026-03-31)
+====================================
+
+■ 句読点の修正
+- Cell 71、75の「。」を排除
+- Cell 46の「，」→「、」に修正
+
+■ 内容・参考文献
+- 内容は最新の状態（ConvNeXt 2022、EfficientNetV2等を網羅）
+- 参考文献セクション（Cell 128、22件）は既存で追加不要
+
+■ 画像
+- 全9件の画像URLのリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-6-ニューラルネットワークの基礎.ipynb (2026-03-31)
+=============================================================
+
+■ 句読点の修正
+- 8セル19箇所の「。」を排除（Cell 5、8、22、24、56、66、67、69）
+- 3セル5箇所の「，」→「、」に修正（Cell 2、8、41）
+
+■ 参考文献セクションの追加
+- Cell 71（新規）: 12件の参考文献を追加
+  Rumelhart et al. (1986), LeCun et al. (1998), Glorot & Bengio (2010),
+  Nair & Hinton (2010), Srivastava et al. (2014), Ioffe & Szegedy (2015),
+  He et al. (2016), Kingma & Ba (2015), Loshchilov & Hutter (2019),
+  Arjovsky et al. (2017), Ruder (2016), Goodfellow et al. (2016)
+
+■ 内容
+- 基礎理論テキストとして内容は適切（AdamW、Wasserstein Loss等を網羅）
+
+■ 画像
+- 全25件の画像URLのリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-C-転移学習.ipynb (2026-03-31)
+=========================================
+
+■ コードの誤り訂正
+- Cell 35: scheduler.step()をエポック末尾に移動（PyTorch 1.1以降の仕様に準拠）
+- Cell 37: pretrained=True → weights='IMAGENET1K_V1'（非推奨APIの更新）
+- Cell 42: 同上
+- Cell 47: 冗長な.cuda().to(device)を.to(device)に統一、不要なrequires_grad=Falseを削除
+
+■ 句読点の修正
+- 5セル6箇所の「。」を排除（Cell 0、10、12、15、36）
+
+■ 参考文献セクションの追加
+- Cell 54（新規）: 5件の参考文献を追加
+  Pan & Yang (2010), Yosinski et al. (2014), He et al. (2016),
+  Kornblith et al. (2019), Zhuang et al. (2021)
+
+■ 画像
+- 本ノートブックに外部画像URLなし（コード内で生成）
+
+■ 記述内容の誤り訂正（追加）
+- Cell 6: Descriminator → Discriminator（スペルミス）
+- Cell 6: 「纏めて奥」→「纏めておく」（誤変換）
+- Cell 12: 「。」削除による文連結を修正
+- Cell 34: バッククォートの閉じ忘れを修正
+- Cell 36: 「。」削除による文連結を修正
+- Cell 48: lambda式のコロン抜けを修正
+- Cell 51: 「何でもい」→「何でもよい」（脱字）
+
+============================================================
+内容・文法の全面精査 (2026-03-31)
+============================================================
+
+mlsys-text-9-CNN.ipynb 追加修正（23件）
+----------------------------------------
+■ タイポ・誤変換
+- Cell 64: shffle → shuffle
+- Cell 75: ためい → ため
+- Cell 75: 状微分方程式 → 常微分方程式
+- Cell 87: 直感的にば → 直感的には / 行列委は → 行列は
+- Cell 93: PyToch → PyTorch
+- Cell 101: のでを → のを
+- Cell 118: 思が → 思うが
+- Cell 130: 人時代を気付いた → 一時代を築いた / トップ実例 → トップの実験
+
+■ 文法・文連結
+- Cell 66: 文構造の破綻を修正
+- Cell 75: 「。」削除による文連結4箇所を修正、です/ます体→である体に統一
+- Cell 79: 文連結を修正
+- Cell 50: 値の範囲の説明を明確化
+
+■ 技術的誤り
+- Cell 24: バッチサイズ100→128に修正
+- Cell 37: テスト変換のNormalize値をCIFAR-10用に統一
+- Cell 87: Gram行列の式でP→Fに修正
+- Cell 89: 空のGoogle Driveリンクを削除
+- Cell 94: pretrained=True → weights='IMAGENET1K_V1'
+
+■ コード修正
+- Cell 65: .cuda() → .to(device)
+
+
+mlsys-text-A-RNN.ipynb 追加修正（24件）
+----------------------------------------
+■ タイポ・誤変換
+- Cell 40: statefull → stateful
+- Cell 44: sateful → stateful（2箇所）
+- Cell 50: 期性 → 周期性 / 畳み込ん小さく → 畳み込んで小さく
+- Cell 71: 規程 → 規定
+- Cell 96: dmbedding_dim → embedding_dim
+- Cell 115: Selenimum → Selenium
+- Cell 131: beautiful soop → BeautifulSoup
+- Cell 142: Fasion-MNIST → Fashion-MNIST / なぞな → 謎の / 状態にる → 状態になる
+- Cell 149: GRN → GRU / 分類において重複削除 / させてなさい → させなさい
+- Cell 151: steteless → stateless
+
+■ コード修正
+- Cell 46: 学習率コメント0.01→0.001に修正
+- Cell 80: 文字ID列 → 単語ID列
+- Cell 104: plt.show → plt.show()
+- Cell 135: テストデータのreshape追加
+- Cell 143/145: 正規化方式をmin-max正規化に統一
+- Cell 139/141: AI生成の引用アーティファクトを削除
+
+■ HTML/書式
+- Cell 96: <pad>をバッククォートで囲み表示されるように修正
+
+
+mlsys-text-B-AutoEncoder.ipynb 追加修正（11件）
+-------------------------------------------------
+■ 重大なバグ
+- Cell 85: iimages → images（CVAE訓練ループが誤データを使用していた）
+- Cell 69: iimages → images（同様の変数名不一致）
+
+■ タイポ
+- Cell 84: lnver → lnvar / epciron → epsilon
+- Cell 15: windows_size → window_size
+
+■ 技術的誤り
+- Cell 22: 反復回数1000回→4000回、表示間隔100回→200回に修正
+- Cell 80: encode/decodeの返り値説明を実装に合わせて修正
+- Cell 80: 未完成の文を補完
+- Cell 96: 画素値正規化 /256 → /255.0
+
+
+mlsys-text-F-物体検出・分割-1.ipynb (2026-03-31)
+==================================================
+
+■ 内容の刷新
+- Cell 43（YOLOのさらにその後）: YOLOv9、YOLOv10、YOLOv11、YOLO-Worldの情報を追加
+
+■ 参考文献セクションの追加
+- Cell 45（新規）: 13件の参考文献を追加
+  Redmon et al. (2016), Liu et al. (2016), Lin et al. (2017),
+  Redmon & Farhadi (2018), Bochkovskiy et al. (2020), Jocher et al. (2020),
+  Li et al. (2023), Wang et al. (2023), Jocher et al. (2023),
+  Wang et al. (2024) x2, Jocher et al. (2024), Cheng et al. (2024)
+
+■ コードの誤り訂正
+- Cell 36: bbox_metric関数のreturnがforループ内にあり、3つのアンカーボックスのうち1つ目しか損失計算されないバグを修正（損失の累積加算に変更）
+- Cell 27: fix → fig（変数名タイポ）
+- Cell 11: 不要な `from six import b` インポートを削除
+- Cell 41: torch.load に weights_only=True を追加
+- Cell 16: hight → height（コメント内タイポ）、5この → 5個の
+
+■ 技術的誤り訂正
+- Cell 4: 「Box一つで255次元」→「グリッドセルあたり3つのBoxで255次元」（1 Boxは85次元）
+- Cell 19: $C_x, C_y$ の説明を「1ピクセルの幅」→「グリッドセルの左上座標」に修正
+- Cell 35: objective score → objectness score
+- Cell 43: CPSDarknet → CSPDarknet
+
+■ タイポ・文法修正
+- Cell 2: 「Global情報をLocal情報の組み合わせ」→「Global情報とLocal情報の組み合わせ」
+- Cell 4: 「ばあい」→「場合」
+- Cell 5: 「次の層までへ伝播」→「次の層まで伝播」
+- Cell 15: AncorBox → AnchorBox
+- Cell 43: 「ラベル割り当て戦略の最適化している」→「を最適化している」
+
+■ 数式修正
+- Cell 20: $t_w,_h$ → $t_w, t_h$
+- Cell 35: $_th → t_h（LaTeX式内のアンダースコア修正）
+
+■ 句読点
+- Cell 42: fi合字（U+FB01）を通常のfiに修正、ですます調→である調に統一、「。」排除
+
+■ 画像
+- 全8件の画像URLのリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-F-物体検出・分割-2.ipynb (2026-03-31)
+==================================================
+
+■ 内容の刷新
+- Cell 107（Segment Anything Model）: SAM 2（2024）の情報を追加（Streaming Architecture、Memory Attention、SA-Vデータセット）
+
+■ 参考文献セクションの追加
+- Cell 156（新規）: 7件の参考文献を追加
+  Long et al. (2015), Ronneberger et al. (2015), Badrinarayanan et al. (2017),
+  Iglovikov & Shvets (2018), Chen et al. (2018), Kirillov et al. (2023),
+  Ravi et al. (2024)
+
+■ 技術的誤り訂正
+- Cell 10: 「情報の保持量をなるべく抑制」→「情報の損失をなるべく抑制」（U-Netスキップ接続は情報損失を抑制するのが目的）
+- Cell 107: SAMの構成要素を「4つ」→「3つ」に修正、「Mask encoder」→「Mask decoder」に修正
+- Cell 107: 「部分を部分を補完」→「部分を補完」（重複削除）
+
+■ コードの誤り訂正
+- Cell 43: vmer/hmerのshapeインデックスが逆（vmerにshape[1]、hmerにshape[0]を使用）→正しい方向に入れ替え
+
+■ タイポ・文法修正
+- Cell 41: 「レーニング用」→「トレーニング用」（ト脱落）
+- Cell 68: `getitem__` → `__getitem__`（先頭アンダースコア脱落）
+- Cell 81: 「30程度」→「30分程度」（分脱落）
+- Cell 119: cv.imread → cv2.imread
+- Cell 133: 「歩費s時手している」→「保持している」（文字化け修正）
+- Cell 140: 「できまる」→「できる」
+
+■ バッククォート修正
+- Cell 48: `__init__` の開始バッククォート補完
+- Cell 50: `A.Resize(256,256)` の開始バッククォート補完
+- Cell 55: `MetricMonitor` の開始引用符→バッククォートに修正
+
+■ 箇条書き修正
+- Cell 35: 行頭の「、」→「-」に修正（箇条書きマーカー）
+
+■ 句読点
+- Cell 4: ですます調→である調に統一、「。」排除（14箇所）
+- Cell 50: 「。」排除
+- Cell 107: ですます→である、「，」→「、」、「．」排除
+- Cell 108: 「，」→「、」（6箇所）、「．」排除（2箇所）
+- Cell 125、130、149: ですます→である
+
+■ 画像
+- 全8件の画像URLのリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-E-PyTorch-Advanced.ipynb (2026-03-31)
+==================================================
+
+■ コードの誤り訂正
+- Cell 7: torch.use_deterministic_algorithms = True → (True)（関数呼び出しに修正）
+- Cell 158: pretrained=True → weights=models.VGG19_Weights.DEFAULT
+- Cell 160: pyrhon → python
+
+■ タイポ・誤変換（28件）
+- Cell 23/30/37/167: backword → backward
+- Cell 57/59: requireds_grad → requires_grad
+- Cell 180: requests_grad → requires_grad
+- Cell 48: parm → param
+- Cell 71: CLoneBackword0 → CloneBackward0
+- Cell 140: するればよい → すればよい / 書き換ええる → 書き換える / 引用符欠落修正
+- Cell 143: Prameter → Parameter
+- Cell 154: Linier → Linear / 連した → 関連した / 掛け合わせてる → 掛け合わせている
+- Cell 157: labes → labels
+- Cell 159: __save_grandient__ → save_gradient
+- Cell 165: 思う尾が → 思うが
+- Cell 166: ひつよ → 必要
+- Cell 172: Pytorh → PyTorch
+- Cell 177: Pytorch Lighting → PyTorch Lightning
+- Cell 182: 高速時実行 → 高速に実行
+- Cell 184: DistibutedDataParallel → DistributedDataParallel
+- Cell 176: tensor.rand → torch.rand / バッククォート修正
+
+■ 文法・技術的修正
+- Cell 79: 「動作上意味となる」→「動作上同じ意味となる」
+- Cell 145: optimizerのパラメータ参照についての技術的説明を修正
+- Cell 150: です/ます体 → である体に統一
+- Cell 153: 「与えてる」→「与えている」
+
+■ 句読点
+- 3セルの「。」を排除
+
+■ 参考文献セクションの追加
+- Cell 198（新規）: 5件（Ganin 2016, Smilkov 2017, Selvaraju 2017, Loshchilov 2019, Paszke 2019）
+
+■ 画像
+- 全11件の画像URLのリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-H-GAN-1.ipynb (2026-03-31)
+==================================================
+
+■ 内容の刷新
+- Cell 74（VAEとGAN）: GANの現在の位置づけを追記（Diffusion Modelの台頭、GANの優位性が残る領域、StyleGAN3）
+
+■ 参考文献セクションの追加
+- Cell 88（新規）: 15件の参考文献を追加
+  Goodfellow et al. (2014), Radford et al. (2016), Isola et al. (2017),
+  Zhu et al. (2017), Karras et al. (2018), Karras et al. (2019),
+  Heusel et al. (2017), Glorot & Bengio (2010), He et al. (2015),
+  Arjovsky et al. (2017), Mirza & Osindero (2014), Chen et al. (2016),
+  Zhang et al. (2017), Ronneberger et al. (2015)
+
+■ スペルミス・タイポ修正
+- Cell 2: 「データの生成する」→「データを生成する」（助詞誤り）
+- Cell 34: 「生成でそうである」→「生成できそうである」
+- Cell 40: 「StayleGAN2」→「StyleGAN2」
+- Cell 40: 「しめす」→「示す」
+- Cell 44: 「Discremenator」→「Discriminator」
+- Cell 44: 「Leakey ReLU」→「Leaky ReLU」
+- Cell 44: 「Bach Normalization」→「Batch Normalization」
+- Cell 78: 「y軸対象」→「y軸対称」
+
+■ コード修正
+- Cell 82: get_layter_out_list → get_layer_out_list（メソッド名タイポ）
+- Cell 82: CustumInitNet → CustomInitNet（クラス名タイポ）
+- Cell 82: "-- LeRU" → "-- ReLU"（表示文字列タイポ）
+
+■ 技術的誤り訂正
+- Cell 23: 一様分布の例でnn.init.normal_を使用 → nn.init.uniform_に修正
+- Cell 40: EfficientGAN説明の不完全な文「GとDと」を補完
+- Cell 43: 「いくつ可能方法」→「いくつかの方法」
+- Cell 44: 「誤差を平均を取得」→「誤差の平均を取得」（助詞修正）
+
+■ 句読点
+- Cell 4: 「，」→「、」
+- Cell 9、14、42（3箇所）、44: 「。」排除（計6箇所）
+
+■ 画像
+- 全3件の画像URLのリンク切れなし（ganfig.png, gan1.svg, ProgressiveGrowing.png）
+
+
+mlsys-text-H-GAN-2.ipynb (2026-03-31)
+==================================================
+
+■ 内容の刷新
+- Cell 57（異常検知の実施）: 最新の異常検知手法を追記（PatchCore, WinCLIP等のViTベース手法）
+- SAGANセクション（新規）: Cell 1の目次に記載があったが本文が欠落していたため、Self-Attention機構、Spectral Normalization、SAGANの意義を含むセクションを追加
+
+■ 参考文献セクションの追加
+- 末尾（新規）: 7件の参考文献を追加
+  Zenati et al. (2018), Donahue et al. (2017), Schlegl et al. (2017),
+  Zhang et al. (2019), Miyato et al. (2018), Roth et al. (2022),
+  Goodfellow et al. (2014)
+
+■ スペルミス修正
+- Cell 59: 「Effient GAN」→「Efficient GAN」
+
+■ コード修正
+- Cell 15、19: y[i] is "X" → y[i] == "X"（Python 3での文字列比較にisを使用するのは不適切）
+
+■ 句読点
+- Cell 37: 「。」排除
+
+■ 不要要素の削除
+- Cell 14: プレースホルダリンク[リンクテキスト](https://)を削除
+
+■ 画像
+- 全1件の画像URLのリンク切れなし（ganencoders.png）
+
+
+mlsys-text-I-NLP-1-Basics.ipynb (2026-03-31)
+==================================================
+
+■ タイポ・文法修正
+- Cell 7: 「辞書(...)場合」→「辞書(...)の場合」（助詞「の」脱落）
+- Cell 54: 「形態要素解析」→「形態素解析」（誤字）
+- Cell 59: 「I'm am conscious」→「I am conscious」
+
+■ 技術的誤り訂正
+- Cell 55: ビタビアルゴリズムの説明が逆（「最短経路と無関係に決まる」→「最短経路のみに基づいて決まる」）
+- Cell 56: CRFの変数説明で$y_t$を「一つ前の単語」と誤記→「出力ラベル」に修正
+- Cell 56: 「組成関数」→「素性関数」（CRFの正式用語）
+- Cell 56: LaTeX数式の上下添字が逆（$∏_n^{i=1}$→$∏_{i=1}^{n}$）
+- Cell 56: LaTeX数式の波括弧不足（$w_i-1$→$w_{i-1}$）
+
+■ 文法・文章修正
+- Cell 56: 「ならをtri-gram」→「をtri-gram」
+- Cell 56: 「単語列を$W$コーパス内の」→文の破綻を修正
+- Cell 56: 「MeCAB」→「MeCab」（表記揺れ修正）
+
+■ 句読点
+- Cell 0, 2, 5, 50, 54, 56, 57: 「。」排除
+- Cell 56: 「，」→「、」
+
+■ 参考文献セクションの追加（6件）
+
+■ 画像
+- 全7件のリンク切れなし
+
+
+mlsys-text-I-NLP-2-AttenSAGS2S.ipynb (2026-03-31)
+==================================================
+
+■ 技術的誤り訂正
+- Cell 2: Attention出力の次元 $M \times d_v$ → $N \times d_v$
+- Cell 6: 「Cross-Attention層」→「Self-Attention層」（Self-Attentionの説明にCross-Attentionと誤記）
+- Cell 8: 「Q, K, W」→「Q, K, V」
+- Cell 9: SAGAN→Transformer の歴史的経緯の誤りを修正（Transformer(2017)が先、SAGANはそれを応用(2019)）
+- Cell 14: 「最大値を1として正規化」→「最大特異値(スペクトルノルム)を1として正規化」
+- Cell 16: シグモイド微分の分母 $(1-e^{-x})^2$ → $(1+e^{-x})^2$
+- Cell 16: 「$p=0,1p=0,1$」→「$p=0, 1$」（テキスト重複）
+- Cell 17: Hingeロスの変数 $-s-1$ → $-x-1$
+- Cell 104: 「Encoder前の出力」→「Decoderの出力」
+
+■ タイポ・文法修正
+- Cell 9: 「Transfomer」→「Transformer」
+- Cell 14: 「入力が状が」→「入力が」（余分な「状が」削除）
+- Cell 16: 「真偽のを予測確率を」→「真偽の予測確率を」
+- Cell 116: 「EOFトークン」→「EOSトークン」
+
+■ コード修正
+- Cell 29: y[i] is "X" → y[i] == "X"（文字列比較修正）
+- Cell 29: Image.BICUBIC → Image.Resampling.BICUBIC（非推奨API）
+- Cell 33, 37: self_attntion → self_attention（属性名タイポ、Generator/Discriminator両方）
+- Cell 100: コメント修正（翻訳語→翻訳後、atten_weights→attn_weights、softmax→log_softmax）
+- Cell 117: コメント EOF→EOS
+
+■ 句読点
+- Cell 0, 65, 71: 「。」排除
+
+■ 参考文献セクションの追加（7件）
+
+■ 画像
+- 全14件のリンク切れなし
+
+
+mlsys-text-I-NLP-3-Transformer.ipynb (2026-03-31)
+==================================================
+
+■ 技術的誤り訂正
+- Cell 10: 「Q, K, W」→「Q, K, V」
+- Cell 22: スケーリング係数 $QK^T/1024$ → $QK^T/\sqrt{1024}$
+- Cell 79: バッチサイズ $M(=256)$ → $M(=32)$（コードとの不整合）
+- Cell 151: 「SDG」→「SGD」、「clip_grad_normを用いて学習率を調整」→「clip_grad_norm_を用いて勾配のノルムを制限」
+
+■ タイポ・文法修正
+- Cell 5: Multi-Head Attentionの並列処理の説明を明確化
+- Cell 7: 「SourceTarget-Attention」→「Source-Target Attention」
+- Cell 52: 「GPU実装適していない」→「GPU実装に適していない」（助詞「に」脱落）
+- Cell 79: 「処理が映るが」→「処理が移るが」（同音異字）
+- Cell 82: 「既述は次の通り」→「仕様は次の通り」
+- Cell 88: 「PositonalEncoder」→「PositionalEncoder」
+- Cell 90: 「-le9」→「-1e9」（英字l→数字1）、「Sofmax」→「Softmax」、「Milti-head」→「Multi-head」
+- Cell 120: 「埋め込まれているである」→「埋め込まれている」、「仕様する」→「使用する」
+- Cell 125: 「Pytorh」→「PyTorch」
+- Cell 130: 「PosigionalEncoding」→「PositionalEncoding」
+
+■ コード修正
+- Cell 113: model.train()/eval() → net.train()/eval()（関数引数名との不一致）、コメント「高速化る」→「高速化する」
+- Cell 167: assertメッセージを修正
+
+■ 句読点
+- 12セルの「。」排除（Cell 15, 20, 28, 30, 37, 44, 48, 49, 146等）
+
+■ 参考文献セクションの追加（6件）
+
+■ 画像
+- 全10件のリンク切れなし
+
+
+mlsys-text-I-NLP-4-Transformer-full.ipynb (2026-03-31)
+==================================================
+
+■ 技術的誤り訂正
+- Cell 6: 対訳ペアの順序説明を修正（実際のコードは(英語, 日本語)順）
+- Cell 77: 「べき乗則から外れるため」→「べき乗則に従い膨大なデータ・計算資源が必要なため」
+- Cell 78: BERT年 2018→2019（NAACL 2019が正しい）
+
+■ 文法・文体修正
+- Cell 12, 16, 31, 58: ですます体→である体に統一
+- Cell 74, 129: 「翻訳の自然さ向上し」→「翻訳の自然さを向上させ」（助詞欠落修正）
+- Cell 26: テーブルの破損修正（「可変長系 | 列BN」→「可変長系列 | BN」）
+- Cell 26: 太字記法の修正（`** text **` → `**text**`）
+- Cell 52: コードブロックの破損修正（`pythonimport` → 改行挿入）
+- Cell 65, 70: セクション番号の不整合を修正
+
+■ コード修正
+- Cell 63, 94, 98, 100, 124: torch.load()にweights_only=True追加（計8箇所）
+
+■ 句読点
+- 11セルの「。」排除
+
+■ 参考文献セクションの追加（5件）
+
+■ 画像
+- 画像URLなし（コード内で生成）
+
+
+mlsys-text-I-NLP-5-BERT.ipynb (2026-03-31)
+==================================================
+
+■ 技術的誤り訂正
+- Cell 4: 「ファインチューニングによる事前学習」→「事前学習タスク」
+- Cell 47: 「（クロスアテンション）」→「（セルフアテンション）」（BERTのCross-Encoderは自己注意を利用）
+- Cell 68: Contrastive Lossの式で(1-y)とyが逆→修正（y=1で類似ペアの距離最小化）
+
+■ タイポ・文法修正
+- Cell 5: 「行なわれている」→「行われている」
+- Cell 5: 「Mask LM」→「Masked LM」
+- Cell 5: 「回答 (Paragraph)」→「回答 (Answer)」
+- Cell 24: 「evaluation_strategy」→「eval_strategy」（旧名称を更新）
+
+■ 句読点
+- Cell 63: 「。」排除
+
+■ 参考文献セクションの追加（5件）
+
+■ 画像
+- 全2件のリンク切れなし
+
+
+mlsys-text-I-NLP-6-CLIP-GD.ipynb (2026-03-31)
+==================================================
+
+■ 技術的誤り訂正
+- Cell 6: 数式 $g(s_j)$ → $g(x_j)$
+- Cell 7: 勾配式の左辺が重複（2行目の$s(i,i)$→$s(i,k)$）、$L(s_i)$→$L(x_i)$
+- Cell 9: $\rightarrow =\infty$ → $\rightarrow +\infty$、$s_{i.i}$→$s_{i,i}$（ピリオド→カンマ）、相対ペナルティ式を積→除算に修正
+- Cell 13: 数式の括弧不整合を修正
+
+■ タイポ・文法修正
+- Cell 12: 「Lossよって」→「Lossによって」（助詞欠落）
+- Cell 30: 「simple_tokenize」→「simple_tokenizer」
+- Cell 31: 「像分類」→「画像分類」（「画」欠落）
+- Cell 32: 「により、は画像」→「により、画像」（2箇所、余分な「は」）
+- Cell 34, 35: susi→sushi、spagetti→spaghetti、humburger→hamburger（マークダウン+コード）
+- Cell 45: 「ALIEN」→「ALIGN」（セクション名誤り）、「応用例を生まれている」→「応用例が生まれている」
+- Cell 46: 「ことから」重複修正、「持ち他方が」→「持った方が」
+- Cell 49: 「Autoencode」→「Autoencoder」
+- Cell 54: 「にありる」→「にある」
+- Cell 88: 「ひつよう」→「必要」
+
+■ コード修正
+- Cell 35: ゼロショット分類ラベルのスペル修正（CLIP精度に影響）
+- Cell 85: 「acat」→「a cat」、区切り記号をカンマ→ピリオドに修正
+
+■ 句読点
+- Cell 2, 45, 53, 60, 62, 64: 「。」排除、ですます体→である体
+
+■ 参考文献セクションの追加（6件）
+
+■ 画像
+- 全1件のリンク切れなし
+
+
+mlsys-text-Q-AIの将来.ipynb (2026-03-31)
+==================================================
+
+■ 内容の刷新
+- Cell 54（日本語LLM現状）: 2024-2025年の動向を追記（PLaMo、tsuzumi、Llama 3ベース日本語モデル、LLM-jpプロジェクト、海外モデルの日本語性能向上）
+
+■ 技術的誤り訂正
+- Cell 4: LaTeX数式修正（$(x_i, y_i)^n_i=1$→$(x_i, y_i)_{i=1}^n$、$f_(a,W)$→$f_{(a,W)}$）
+- Cell 20: FLOPsの値「1023」→「$10^{23}$」（数式表記）
+- Cell 22: FN→FNN（Feedforward Neural Network）、括弧の閉じ忘れ修正
+- Cell 36: Chinchillaの説明修正（パラメータ数はGopherより「多い」→「少ない」が正しい）
+
+■ タイポ・文法修正
+- Cell 4: 参考文献のスペース不足5箇所（Brutzkuset→Brutzkus et、コロン後スペース等）
+- Cell 5: 「現象銘」→「現象名」（漢字誤り）
+- Cell 20: 余分な閉じ括弧「)」削除
+- Cell 41: 「ベクトルへサイズへと」→「ベクトルのサイズへと」（助詞重複）
+- Cell 41: 不完全な文末「全く異なる」を補完
+- Cell 46: 「収取」→「収集」
+- Cell 54: 「ChatGPT4」→「GPT-4」
+
+■ 文体統一
+- Cell 22, 41: ですます体→である体に修正
+
+■ 句読点
+- Cell 0, 20, 21, 29, 30, 33, 41, 49, 52, 53: 「。」排除
+- Cell 4: 「，」→「、」
+
+■ その他
+- Cell 48: 番号付きリストの番号を修正（1,1,3→1,2,3）
+- Cell 53: 箇条書きマーカー「- 」追加、半角?→全角？
+
+■ 参考文献セクションの追加（12件）
+
+■ 画像
+- 全19件のリンク切れなし
+
+
+mlsys-text-C-転移学習.ipynb 追加修正 (2026-04-01)
+==================================================
+
+■ 内容の刷新
+- Cell 7（メリット・デメリット）: 近年の転移学習の発展を追記（Foundation Model、PEFT、LoRA/QLoRA、Adapter、Prompt Tuning）
+
+■ タイポ修正
+- Cell 30: 「そのでテンソル」→「そこでテンソル」
+
+■ コード修正
+- Cell 47: torch.loadにweights_only=True追加
+
+■ 参考文献追加（3件）
+- Hu et al. (2022) LoRA、Dettmers et al. (2023) QLoRA、Bommasani et al. (2021) Foundation Models
+
+
+mlsys-text-D-強化学習.ipynb (2026-04-01)
+==================================================
+
+■ 大幅コンテンツ追加（3セクション）
+- 「方策勾配法とActor-Critic」セクション新設: REINFORCE(Williams 1992)、方策勾配定理、Actor-Critic、Advantage関数、PPO(クリッピング目的関数)
+- 「RLHF」セクション新設: SFT→報酬モデル→PPOの3段階、DPO(Direct Preference Optimization)、Constitutional AI
+- 「オフライン強化学習とDecision Transformer」セクション新設: CQL、IQL、Decision Transformer
+
+■ 技術的誤り訂正
+- Cell 41: Q学習更新式の符号誤り（$r_{t+1}-\gamma\max$→$r_{t+1}+\gamma\max$）【重大】
+- Cell 17: Sarsa/TD誤差の添字ミス4箇所（$Q_()$、$r_{t_+1}$、$s_{t_1}$→$s_{t+1}$）
+- Cell 46: DDQNのargmax式修正（$a_{t+1}$→$a$）
+- Cell 50: GOREILAとA3Cの混同を修正（別の論文・手法であることを明記）
+- Cell 51: UNREALの説明を修正（カリキュラム学習→補助タスクによる表現学習）
+
+■ スペルミス修正
+- Cell 40, 45, 46: Q-Netowrk→Q-Network（計6箇所）
+- Cell 87: Tutrial→Tutorial
+- Cell 70: borad→board（2箇所）
+- Cell 39: 「こうせい」→「構成」
+
+■ 日本語・数式修正
+- Cell 22: 余分な「を」削除
+- Cell 70: 混入文字「て」削除
+- Cell 97: 「ではないいため」→「ではないため」、LaTeX記号破損修正
+- Cell 98: LaTeX「$」記号欠落修正
+
+■ コード修正
+- Cell 106: it's→its
+
+■ 句読点
+- Cell 31, 50, 62, 70, 73, 107: 「。」排除
+- 「，」→「、」
+
+■ 参考文献セクションの追加（11件）
+  Sutton & Barto (2018), Watkins & Dayan (1992), Mnih et al. (2015/2016),
+  Williams (1992), Schulman et al. (2017), Ouyang et al. (2022),
+  Rafailov et al. (2023), Chen et al. (2021), Haarnoja et al. (2018),
+  Janner et al. (2019)
+
+■ 画像
+- 全8件のリンク切れなし（全てHTTP 200）
+
+
+mlsys-text-J-ViT-US.ipynb (2026-04-01)
+==================================================
+
+■ 内容の刷新
+- Cell 5（新規）: ViTの発展と派生モデルを追加（DeiT、Swin Transformer、MAE、BEiT、FlashAttention、DINOv2）
+
+■ 重大バグ修正
+- Cell 46: CodeFormer結果表示で`cv2.resize(img1,...)`→`cv2.resize(img2,...)`（入力画像と処理後画像が同一表示になるバグ）
+
+■ タイポ・文法修正
+- Cell 1: `ImageNe`→`ImageNet`
+- Cell 13: `Transforme`→`Transformer`、二重助詞「パッチにを」→「パッチに」
+- Cell 14: 文途切れ「前処理を行」→「前処理を行う」
+- Cell 2: 「配置する構造」→「配置される構造」（受身形）
+- Cell 20: 二重助詞「をそのものを」→「そのものを」、冒頭の矛盾する記述を修正、`$M \times M$個のパッチ`→`ピクセルのパッチ`
+- Cell 31: 「翻訳に影響されない」→「平行移動に影響されない（平行移動不変性）」
+
+■ フォーマット・コード修正
+- Cell 18: バッククォート未閉じ修正
+- Cell 29: TensorBoardパスのコピペ残留修正（tutorial15→VisionTransformers）
+- Cell 36: 画像URL http→https
+
+■ 句読点
+- Cell 26, 38: 「。」排除
+
+■ 参考文献セクションの追加（8件）
+  Dosovitskiy et al. (2021), Touvron et al. (2021), Liu et al. (2021),
+  He et al. (2022), Bao et al. (2022), Dao et al. (2022),
+  Zhou et al. (2022), Oquab et al. (2024)
+
+■ 画像
+- 全4件のリンク切れなし
+
+
+mlsys-text-K-StyleGAN-1.ipynb (2026-04-01)
+==================================================
+
+■ タイポ・文法修正
+- Cell 5: 「実行できにくく」→「実行しにくく」、「StyleGANは提供されるコードは」→「StyleGANで提供されるコードは」（助詞「は」重複）
+- Cell 28: 「StylegGAN」→「StyleGAN」
+- Cell 48: 「これをを$w$に」→「これを$w$に」（「を」重複）
+- Cell 49: 「生成させない」→「生成しなさい」（課題文が禁止文になっていた重大誤り）、「1つづつ」→「1つずつ」
+- Cell 52: 「オプションをしている」→「オプションを指定している」
+- Cell 55: 「線形補完」→「線形補間」（2箇所、interpolationの正しい訳語）
+- Cell 58: 「--flames」→「--frames」
+- Cell 59: 「シードがについて」→「シードについて」
+- Cell 60: 「行う場に」→「行う場合に」
+
+■ コード修正
+- Cell 35: PIL.Image.ANTIALIAS → PIL.Image.LANCZOS（Pillow 10.0で削除済みAPI）
+
+■ 参考文献セクションの追加（3件）
+
+■ 画像
+- 全12件のリンク切れなし
+
+
+mlsys-text-K-StyleGAN-2.ipynb (2026-04-01)
+==================================================
+
+■ タイポ・文法修正
+- Cell 19: `$zZ` → `$z$`（LaTeX記号破損）
+- Cell 33: 「StyleGan2」→「StyleGAN2」、「出モジュレーション」→「デモジュレーション」（用語統一）
+- Cell 37: 「pluse」→「PULSE」（ツール名）
+- Cell 69: 「歯性別が」→「は性別が」（誤変換）
+- Cell 70: `$leap$`→`$lerp$`、`$f(\mathbf{z_2}$`の括弧閉じ忘れ（2箇所）、「Perceltual」→「Perceptual」
+- Cell 72: 「属性変更kの」→「属性変更の」
+
+■ コード修正
+- Cell 64: VideoWriterのwidth/height指定が逆→修正
+
+■ 句読点
+- Cell 0, 18, 26, 32: 「。」排除
+
+■ 参考文献セクションの追加（5件）
+
+■ 画像
+- 全23件のリンク切れなし
+
+
+mlsys-text-K-StyleGAN-3.ipynb (2026-04-01)
+==================================================
+
+■ 内容の刷新
+- Cell 31: StyleGAN3（エイリアスフリー生成）、StyleGAN-XL（大規模データセット対応）、GAN以降の画像生成（Diffusion Model）の動向を追記
+
+■ 文法修正
+- Cell 4: 孤立した「の」削除、「において」の冗長表現修正
+
+■ コード修正
+- Cell 15: コメント「difine」→「define」
+
+■ 句読点
+- Cell 0, 3: 「。」排除
+
+■ 参考文献セクションの追加（4件）
+
+■ 画像
+- 全1件のリンク切れなし
+
+
+mlsys-text-K-StyleGAN-4-Application.ipynb (2026-04-01)
+==================================================
+
+■ 文法・タイポ修正
+- Cell 6: 見出し末尾の「。」削除
+- Cell 8: 「潜在変数はwは」→「潜在変数wは」（助詞重複）
+- Cell 47: 括弧の閉じ忘れ修正
+- Cell 48: 「deprecateされている。」→「非推奨(deprecated)となっている」
+- Cell 73: 「影響を与えることができる」→「悪影響を与えてしまう」
+
+■ コード修正
+- Cell 25: f文字列プレフィックス欠落修正（`"f{...}"` → `f"{...}"`)
+- Cell 93: コメント「destktop」→「desktop」
+
+■ 参考文献セクションの追加（5件）
+
+■ 画像
+- 全13件のリンク切れなし（全4ノートブック合計49件、全てHTTP 200）
+
+
+mlsys-text-L-Diffusion-1.ipynb (2026-04-01)
+==================================================
+
+■ 内容の刷新
+- Cell 81（新規）: 2023年以降の発展を追記（SDXL、SD3、DALL-E 3、Flux、ControlNet、Consistency Models、Flow Matching）
+
+■ 重大な技術的誤り訂正
+- Cell 33: 「期待分子」→「気体分子」（拡散の物理的説明で致命的な誤字）
+- Cell 24: guidance_scaleの説明が逆→修正（大きい=テキスト忠実、小さい=多様性）
+- Cell 45, 46: 「潜像拡散」「潜像空間」「潜像表現」→「潜在拡散」「潜在空間」「潜在表現」（複数箇所、写真用語と混同）
+- Cell 36: 確率分布記号 $\rho\theta$ → $p_\theta$
+
+■ タイポ・文法修正
+- Cell 16: `sefety_check.py`→`safety_check.py`
+- Cell 49: `Diffuers`→`Diffusers`
+- Cell 68: `setp()`→`step()`
+- Cell 74: 「協会の絵」→「教会の絵」
+- Cell 92: `Discremenator`→`Discriminator`
+- Cell 10: 「コピーして置いた」→「コピーしておいた」
+- Cell 25: 「グリッドを表示」→「グリッドで表示」
+- Cell 42: `Diffuser`→`Diffusers`
+
+■ フォーマット修正
+- Cell 46: スケジューラ3件のMarkdownリンクの`[`欠落を修正
+- Cell 49: 3件のMarkdownリンクの`[`欠落を修正
+
+■ 句読点
+- Cell 15, 48, 90, 91: 「。」排除
+
+■ 参考文献セクションの追加（9件）
+  Ho et al. (2020), Song et al. (2021), Rombach et al. (2022),
+  Ramesh et al. (2022), Saharia et al. (2022), Podell et al. (2024),
+  Esser et al. (2024), Zhang et al. (2023), Li et al. (2022)
+
+■ 画像
+- 11件OK、1件リンク切れ（diffusionstyle.jpg: 404）
+
+
+mlsys-text-L-Diffusion-2.ipynb (2026-04-01)
+==================================================
+
+■ 重大な技術的誤り訂正
+- Cell 58: GGUFの略語展開が誤り（`GPT-Generated Unified Format`→`GGML Universal File Format`、GPTとは無関係）
+
+■ AIデバッグアーティファクトの削除
+- Cell 93-98（6セル）: AIエージェントが誤って挿入したデバッグタスクログ・作業メモを削除
+
+■ タイポ・文法修正
+- Cell 2: 「することはできれば」→「することができれば」、「モデル変換モデル」→「変換モデル」
+- Cell 9: 「しががって」→「したがって」
+- Cell 30: 「をしているする」→「を指定する」
+- Cell 57: 「報告されてる」→「報告されている」
+- Cell 59: 「あんる」→「なる」
+
+■ コード修正
+- Cell 35: `doesn't exists`→`doesn't exist`
+- Cell 48: `an real`→`a real`
+
+■ 句読点
+- Cell 0, 9, 11: 「。」排除
+- Cell 67: 箇条書き記号を`・`→`-`に統一
+
+■ 参考文献セクションの追加（5件）
+  Hu et al. (2022), Ruiz et al. (2023), Gal et al. (2023),
+  Wan Team (2025), Dettmers et al. (2023)
+
+■ 画像
+- 全3件のリンク切れなし
+
+
+mlsys-text-M-LLM-1-Basics.ipynb (2026-04-01)
+==================================================
+
+■ 大幅コンテンツ追加（6セクション新設）
+- Cell 41（新規）「LLMの主要アーキテクチャ技術」: MoE（Mixture of Experts、Mixtral/DeepSeek例）、GQA（Grouped Query Attention）、RoPE（Rotary Position Embedding）、KV Cache最適化、FlashAttention
+- Cell 42（新規）「LLMの量子化と効率的推論」: GPTQ、AWQ、GGUF、bitsandbytes、FP8学習、Speculative Decoding、vLLM（PagedAttention）、TensorRT-LLM
+- Cell 52（新規）「RLHFの発展手法」: DPO（数式付き）、GRPO、KTO、ORPO、Constitutional AI
+- Cell 69（新規）「推論モデルとテスト時計算スケーリング」: o1/o3、DeepSeek R1、Claude Extended Thinking、テスト時計算スケーリング則
+- Cell 70（新規）「マルチモーダルLLM」: GPT-4o、Gemini 2.0/2.5、LLaVA、InternVL
+- Cell 82（新規）参考文献15件
+
+■ 重大な誤り訂正
+- Cell 49: RLHF目的関数の数式誤り（$\gamma = \mathbb{E}$→$\gamma \cdot \mathbb{E}$、等号→乗算）
+- Cell 56: セクション見出し「プロジェクトインジェクション」→「プロンプトインジェクション」
+- Cell 3: 「GPT-4o1」→「o1（OpenAI o1、推論特化モデル）」
+
+■ タイポ・文法修正
+- Cell 33: 英語タイポ3件（mulst→must、inquires→inquiries、gbeneration→generation）
+- Cell 41: 助詞「を」脱落修正
+- Cell 45: Truthfullness→Truthfulness
+- Cell 52: Aditional→Additional
+- Cell 65: 5憶円→5億円、nVIDIA→NVIDIA
+- Cell 68: Stable Vicna→Stable Vicuna
+- Cell 31: Sart→Start
+- Cell 7: GPT-R→GPT-J（存在しないモデル名）
+- Cell 18: 文末途切れ補完
+- Cell 30: プロンプトリークの文構造修正
+
+■ 句読点
+- 10セルの「。」排除（Cell 13, 15, 18, 20, 22, 27, 31, 33, 48, 55）
+
+■ 画像
+- 全18件のリンク切れなし
+
+
+mlsys-text-M-LLM-2-Application.ipynb (2026-04-01)
+==================================================
+
+■ 内容の刷新
+- Cell 204（新規）: 2024-2025年の主要な変化を追記（gpt-4o-mini、OpenAI Responses API、LangChain v0.3/LangSmith/LangGraph、Gradio 4.xのチャット履歴形式変更）
+
+■ 重大な技術的誤り訂正
+- Cell 17: 「gpt-3.5-turboではsystemは利用しない」→利用可能であることを明記（完全な誤情報）
+- Cell 107, 115: MRKLの正式名称誤り（Multi-Round Knowledge Loop→Modular Reasoning, Knowledge and Language）
+- Cell 150: gr.Boxの後継「gr.Blocks」→「gr.Group」に修正
+- Cell 196: RAGの正式名称「Retrieval Augmented Generative」→「Retrieval-Augmented Generation」
+
+■ タイポ・文法修正
+- Cell 21: humburger→hamburger
+- Cell 116: 「入力分」→「入力文」
+- Cell 202: 「使うの最適か」→「使うのが最適か」（2箇所）
+- Cell 49: LangChainドキュメントURL更新
+- Cell 138: 末尾の不要文字削除
+
+■ 句読点
+- Cell 14, 42, 45, 108, 115: 「。」排除
+
+■ 参考文献セクションの追加（5件）
+
+■ 画像
+- 全6件のリンク切れなし
+
+
+mlsys-text-M-LLM-3-Agent.ipynb (2026-04-01)
+==================================================
+
+■ 技術的誤り訂正
+- Cell 48: Windsurfの開発元「Cognition」→「Codeium」に修正（CognitionはDevinの開発元）
+- Cell 63: sLLMの略語展開「Languag」→「Language」
+
+■ 文連結修正（マークダウン5箇所）
+- Cell 11, 74, 77, 83, 85: 文の境界が欠落していた箇所に改行・接続詞を追加
+
+■ コード文字列内の句読点追加（10箇所）
+- Cell 17, 20, 78, 84, 86: instructions/system文字列内で文が連結していた箇所に「。」追加
+
+■ 文法修正
+- Cell 50: 括弧「「」の閉じ忘れ修正
+- Cell 14: 「中心組み込みツール」→「中心であり、組み込みツール」
+
+■ 画像
+- 全1件のリンク切れなし（参考文献は既存）
+
+
+mlsys-text-O-RWKV.ipynb (2026-04-01)
+==================================================
+
+■ 大幅コンテンツ追加
+- Cell 19（新規）: RWKV-5 Eagle、RWKV-6 Finch、RWKV-7 Gooseの進化を解説。SSM(Mamba)との関係も整理
+
+■ 重大な技術的誤り訂正
+- Cell 18: RWKVとattentionの関係を正確に記述（Transformerのself-attentionは使用しないが、初期RWKV(v1〜v4)はlinear attentionとRNNの橋渡しとして理解すべき。RWKV-7系はattention的枠組みからさらに離れた独自状態更新モデル）
+- Cell 16: σの説明がsquared ReLUとsigmoidを混同→σはsigmoid、squared ReLUは$k_t$の活性化に使用と明記
+- Cell 6: 「メモリ使用率」→「使用量」、「RWKV2を用いる」→「RWKV4を用いる」（コードと不整合）、RWKV-7までの存在を注記
+
+■ タイポ・文法修正
+- Cell 3: 「様々登場」→「様々なモデルが登場」
+- Cell 11: 「求める必要ない」→「求める必要がない」
+- Cell 14: 「パラメ―タ」→「パラメータ」（EMダッシュ→長音符）
+- Cell 32: 「へらす」→「減らす」
+- Cell 37: 「無料」→「独立した」（freeの誤訳修正）
+- Cell 51: substracts→subtracts
+
+■ コード修正
+- Cell 58: `== None` → `is None`
+
+■ 句読点
+- Cell 7, 26, 41, 45: 「。」排除
+- Cell 9, 12: 「，」→「、」
+
+■ 参考文献セクションの追加（6件）
+  Peng et al. (2023) RWKV, Peng et al. (2024) Eagle/Finch,
+  RWKV Foundation (2025) Goose, Gu & Dao (2023) Mamba,
+  Dao & Gu (2024) Mamba-2, Zhai et al. (2021) AFT
+
+■ 画像
+- 全2件のリンク切れなし
+
+
+mlsys-text-P-Federated.ipynb (2026-04-01)
+==================================================
+
+■ 大幅コンテンツ追加
+- Cell 19（新規）「連合学習の発展」: FedProx、Non-IIDの種類、差分プライバシ基礎、フレームワーク(Flower等)、LLMとFL
+
+■ 重大な誤り訂正
+- Cell 27: 「MNIST」→「CIFAR-10」（コードと不整合）
+- Cell 16: 見出し記法「--」→「#」
+
+■ 技術的誤り訂正
+- Cell 4: 防御的蒸留の説明修正、Cell 2: 主語補完、Cell 16: GBDT略語簡潔化
+
+■ 句読点
+- Cell 12, 18: 「，」→「、」
+
+■ 参考文献セクションの追加（6件）
+
+■ 画像
+- 全4件のリンク切れなし
+
+
+mlsys-text-R-運用.ipynb (2026-04-01)
+==================================================
+
+■ コンテンツ追加
+- Cell 48（新規）「実用的なMLOps技術」: Docker コンテナ化(Dockerfile例付き)、CI/CD for ML、モデルサービング(FastAPI/TorchServe/vLLM)、本番監視(データドリフト/コンセプトドリフト)
+
+■ コードバグ修正
+- Cell 33: `total_mem`→`total_memory`（AttributeError修正）
+- Cell 24: `torch.load()`に`map_location=device, weights_only=True`追加
+
+■ その他修正
+- Cell 42: `torch.cuda.amp`非推奨の注記追加
+- Cell 16: zsh/bashの使い分け注記追加
+- Cell 0: 閉じカギカッコの改行修正
+
+■ 参考文献追加（1件: Paleyes et al. 2022）
+
+■ 画像: なし（コード生成のみ）
+
+
+全ノートブック共通修正 (2026-04-01)
+==================================================
+
+■ CRLF改行文字の修正
+- 26ファイルのCRLF(\\r\\n)をLF(\\n)に一括変換
+- Colab/Jupyterで「Unsupported newline characters」エラーが発生する問題を解消
+
+■ GAN-2 不正文字修正
+- SAGANセクション(Cell 59)のLaTeX記法で\\beta→\\x08(バックスペース)、\\frac→\\x0c(フォームフィード)にエスケープされていた問題を修正
+
+
+mlsys-text-1-準備.ipynb (2026-04-01)
+==================================================
+■ 文法修正: 「授業単元ごとノートブック」→「ごとに」、「様々できる」→「様々なことができる」
+■ 句読点: 8セルの「。」排除、「，」→「、」
+■ 参考文献追加（2件）
+■ 画像: 全6件リンク切れなし
+
+mlsys-text-2-ML基礎.ipynb (2026-04-01)
+==================================================
+■ 技術的誤り: Cell 13でクラスタリングが教師あり学習に誤分類→修正、Cell 19のΣ→O(exp)、Cell 40-42のMAE/MSE/RMSE添字k→i統一
+■ タイポ: 「標本(sample)サンプル」重複、「ひとつづつ」→「ずつ」、「してい​しておく」→「指定しておく」
+■ 句読点: 9セルの「。」排除、4セルの「，」→「、」
+■ 参考文献追加（3件）
+■ 画像: 全20件リンク切れなし
+
+mlsys-text-2-ML基礎-補助.ipynb (2026-04-01)
+==================================================
+■ 修正: 全角/半角括弧混在「(Transpose）」、「現・八冠」→「将棋棋士」（事実陳腐化）
+■ 句読点: 23セルの「。」排除、3セルの「，」→「、」
+■ 参考文献追加（2件）
+■ 画像: 全3件リンク切れなし
+
+mlsys-text-2-python復習.ipynb (2026-04-01)
+==================================================
+■ タイポ: 「できまる」→「できる」
+■ 用語修正: 「CalcPlusメソッド」→「クラス」、「delメソッド」→「del文」、「len()メソッド」→「len()関数」、「クラス間で共通」→「インスタンス間で共通」
+■ 技術修正: 「50等分」→「50個の等間隔な値」、Numpy→NumPy表記統一
+■ 句読点: 8セルの「。」排除
+■ 参考文献追加（3件）
+
+mlsys-text-3-データの扱い.ipynb (2026-04-01)
+==================================================
+■ コードバグ修正: Cell 70のrandintにfloat引数→int()でラップ、chained indexing→.loc[]に修正
+■ フォーマット修正: Cell 6のMarkdownテーブルの|区切り欠落、Cell 13のバッククォート不整合
+■ 句読点: 9セルの「。」排除
+■ 参考文献追加（2件）
+
+mlsys-text-4-MLライブラリの基礎.ipynb (2026-04-01)
+==================================================
+■ 重大タイポ修正: 「バンキング」→「バギング」、「ブーストラップ」→「ブートストラップ」、「分離調平面」→「分離超平面」、「ジニ計数」→「ジニ係数」、「弱学習機」→「弱学習器」、scikit-learn綴り4パターン修正、「でオフト」→「デフォルト」
+■ 数式修正: 二重和の添字$\sum_{i=j}$→$\sum_{j=1}$（2箇所）、$\inf$→$\infty$
+■ コード修正: `from six import StringIO`→`from io import StringIO`
+■ 句読点: 14セルの「。」排除、2セルの「，」→「、」
+■ 参考文献追加（5件）
+■ 画像: 全13件リンク切れなし
+
+mlsys-text-5-Sklearn-まとめ.ipynb (2026-04-01)
+==================================================
+■ 重大技術誤り: 「正規化パラメータ」→「正則化パラメータ」（Cell 116, 125の計3箇所、regularization≠normalization）
+■ タイポ: 「えきる」→「できる」、mglern→mglearn(3箇所)、kNeighbors→KNeighbors、two_moon→two_moons
+■ LightGBMパラメータ名: min_samples_in_leaf→min_data_in_leaf
+■ 文章未完成の補完: 「scikit-learnからは」→「scikit-learnからは削除された」
+■ 句読点: 1セルの「。」排除、3セルの「，」→「、」
+■ 参考文献追加（3件）
+
+
+mlsys-text-N-アプリ-transformer.ipynb (2026-04-01)
+==================================================
+■ スペルミス: `processiong`→`processing`（見出し2箇所）
+■ 内容修正: 導入リストにYOLOEが欠落→追加（「2つ」→「3つ」）
+■ 文法修正: 「デコーダでモデル」→「デコーダを用いたモデル」、助詞「を」脱落、文体統一
+■ 技術修正: Whisperの「監視」→「教師あり学習」、「転写」→「文字起こし」
+■ 句読点: 2セルの「。」排除
+■ 参考文献追加（3件: Whisper, GIT, YOLOE）
+■ 画像: 全4件リンク切れなし
