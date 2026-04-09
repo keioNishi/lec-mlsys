@@ -134,8 +134,10 @@
 [![mlsys-text-I-NLP-4-Transformer-full.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-4-Transformer-full.ipynb)
 - I-NLP-5-BERT  
 [![mlsys-text-I-NLP-5-BERT.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-5-BERT.ipynb)
-- I-NLP-6-CLIP-GD  
-[![mlsys-text-I-NLP-6-CLIP-GD.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-6-CLIP-GD.ipynb)
+- I-NLP-6-GPT-full  
+[![mlsys-text-I-NLP-6-GPT-full.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-6-GPT-full.ipynb)
+- I-NLP-7-CLIP-GD  
+[![mlsys-text-I-NLP-7-CLIP-GD.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-I-NLP-7-CLIP-GD.ipynb)
 - J-ViT-US  
 [![mlsys-text-J-ViT-US.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-ViT-US.ipynb)
 - K-StyleGAN-1  
