@@ -441,7 +441,7 @@ mlsys-text-H-GAN-2.ipynb (2026-03-31)
 - 全1件の画像URLのリンク切れなし（ganencoders.png）
 
 
-mlsys-text-I-NLP-1-Basics.ipynb (2026-03-31)
+mlsys-text-J-NLP-1-Basics.ipynb (2026-03-31)
 ==================================================
 
 ■ タイポ・文法修正
@@ -471,7 +471,7 @@ mlsys-text-I-NLP-1-Basics.ipynb (2026-03-31)
 - 全7件のリンク切れなし
 
 
-mlsys-text-I-NLP-2-AttenSAGS2S.ipynb (2026-03-31)
+mlsys-text-J-NLP-2-AttenSAGS2S.ipynb (2026-03-31)
 ==================================================
 
 ■ 技術的誤り訂正
@@ -507,7 +507,7 @@ mlsys-text-I-NLP-2-AttenSAGS2S.ipynb (2026-03-31)
 - 全14件のリンク切れなし
 
 
-mlsys-text-I-NLP-3-Transformer.ipynb (2026-03-31)
+mlsys-text-J-NLP-3-Transformer.ipynb (2026-03-31)
 ==================================================
 
 ■ 技術的誤り訂正
@@ -541,7 +541,7 @@ mlsys-text-I-NLP-3-Transformer.ipynb (2026-03-31)
 - 全10件のリンク切れなし
 
 
-mlsys-text-I-NLP-4-Transformer-full.ipynb (2026-03-31)
+mlsys-text-J-NLP-4-Transformer-full.ipynb (2026-03-31)
 ==================================================
 
 ■ 技術的誤り訂正
@@ -569,7 +569,7 @@ mlsys-text-I-NLP-4-Transformer-full.ipynb (2026-03-31)
 - 画像URLなし（コード内で生成）
 
 
-mlsys-text-I-NLP-5-BERT.ipynb (2026-03-31)
+mlsys-text-J-NLP-5-BERT.ipynb (2026-03-31)
 ==================================================
 
 ■ 技術的誤り訂正
@@ -592,7 +592,7 @@ mlsys-text-I-NLP-5-BERT.ipynb (2026-03-31)
 - 全2件のリンク切れなし
 
 
-mlsys-text-I-NLP-6-CLIP-GD.ipynb (2026-03-31)
+mlsys-text-J-NLP-7-CLIP-GD.ipynb (2026-03-31)
 ==================================================
 
 ■ 技術的誤り訂正
@@ -724,7 +724,7 @@ mlsys-text-D-強化学習.ipynb (2026-04-01)
 - 全8件のリンク切れなし（全てHTTP 200）
 
 
-mlsys-text-J-ViT-US.ipynb (2026-04-01)
+mlsys-text-K-ViT-US.ipynb (2026-04-01)
 ==================================================
 
 ■ 内容の刷新
@@ -758,7 +758,7 @@ mlsys-text-J-ViT-US.ipynb (2026-04-01)
 - 全4件のリンク切れなし
 
 
-mlsys-text-K-StyleGAN-1.ipynb (2026-04-01)
+mlsys-text-I-StyleGAN-1.ipynb (2026-04-01)
 ==================================================
 
 ■ タイポ・文法修正
@@ -781,7 +781,7 @@ mlsys-text-K-StyleGAN-1.ipynb (2026-04-01)
 - 全12件のリンク切れなし
 
 
-mlsys-text-K-StyleGAN-2.ipynb (2026-04-01)
+mlsys-text-I-StyleGAN-2.ipynb (2026-04-01)
 ==================================================
 
 ■ タイポ・文法修正
@@ -804,7 +804,7 @@ mlsys-text-K-StyleGAN-2.ipynb (2026-04-01)
 - 全23件のリンク切れなし
 
 
-mlsys-text-K-StyleGAN-3.ipynb (2026-04-01)
+mlsys-text-I-StyleGAN-3.ipynb (2026-04-01)
 ==================================================
 
 ■ 内容の刷新
@@ -825,7 +825,7 @@ mlsys-text-K-StyleGAN-3.ipynb (2026-04-01)
 - 全1件のリンク切れなし
 
 
-mlsys-text-K-StyleGAN-4-Application.ipynb (2026-04-01)
+mlsys-text-I-StyleGAN-4-Application.ipynb (2026-04-01)
 ==================================================
 
 ■ 文法・タイポ修正
