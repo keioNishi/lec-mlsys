@@ -45,7 +45,11 @@
       "Bash(python -u -c \":*)",
       "Bash(PYTHONIOENCODING=utf-8 python \"I:/マイドライブ/Colab Notebooks/lec-mlsys/check_nb.py\" 2>&1)",
       "WebFetch(domain:class.west.sd.keio.ac.jp)",
-      "Bash(find .git -name \"desktop.ini\" -delete)"
+      "Bash(find .git -name \"desktop.ini\" -delete)",
+      "Bash(echo \"exit=$?\")",
+      "Bash(ssh -T git@github.com)",
+      "Bash(ssh -T git@github.west)",
+      "Bash(ssh -T git@github.keio)"
     ]
   }
 }
