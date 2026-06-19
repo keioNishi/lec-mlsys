@@ -2,6 +2,8 @@ services:
   colab:
     image: asia-docker.pkg.dev/colab-images/public/runtime
 
+    restart: unless-stopped
+
     deploy:
       resources:
         reservations:
