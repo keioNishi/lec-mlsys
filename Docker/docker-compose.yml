@@ -16,11 +16,16 @@ services:
     shm_size: '1gb'
 
     ports:
-      - "127.0.0.1:9000:8080"
+      - "0.0.0.0:9000:8080"
       - "0.0.0.0:7860:7860"
 
     environment:
       - JUPYTER_TOKEN=2238522
+    command: >
+      bash -c "
+        sed -i 's/\"serverHost\": \"\"/\"serverHost\": \"0.0.0.0\"/' /datalab/web/config/settings.json &&
+        exec /datalab/run.sh
+      "
 
     volumes:
       - ./content:/content
