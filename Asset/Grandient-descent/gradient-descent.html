@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>勾配降下法の可視化 - Gradient Descent Visualization</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%);
+    }
+    
+    #container {
+      width: 100vw;
+      height: 100vh;
+      cursor: grab;
+    }
+    
+    #container:active {
+      cursor: grabbing;
+    }
+    
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: 20px 30px;
+      background: linear-gradient(180deg, rgba(26,26,46,0.95) 0%, rgba(26,26,46,0) 100%);
+      z-index: 10;
+      pointer-events: none;
+    }
+    
+    .header h1 {
+      font-size: 28px;
+      font-weight: 600;
+      background: linear-gradient(90deg, #ff6b9d, #c084fc, #60a5fa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+    
+    .header p {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #8888aa;
+      letter-spacing: 0.5px;
+    }
+    
+    .control-panel {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding: 20px 25px;
+      background: rgba(30, 30, 50, 0.95);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      min-width: 320px;
+      z-index: 10;
+    }
+    
+    .control-label {
+      color: #aaa;
+      font-size: 12px;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .optimizer-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    
+    .optimizer-btn {
+      padding: 8px 14px;
+      font-size: 12px;
+      font-weight: 400;
+      color: #999;
+      background: rgba(60,60,80,0.5);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .optimizer-btn.active {
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    }
+    
+    .optimizer-btn:hover:not(.active) {
+      background: rgba(80,80,100,0.6);
+    }
+    
+    .optimizer-desc {
+      color: #666;
+      font-size: 11px;
+      margin-top: 6px;
+    }
+    
+    .slider-container {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .slider-header {
+      display: flex;
+      justify-content: space-between;
+      color: #aaa;
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    
+    .slider-value {
+      color: #60a5fa;
+      font-family: monospace;
+    }
+    
+    .slider-value.purple {
+      color: #c084fc;
+    }
+    
+    .slider-value.pink {
+      color: #f472b6;
+    }
+    
+    input[type="range"] {
+      width: 100%;
+      accent-color: #60a5fa;
+      cursor: pointer;
+    }
+    
+    input[type="range"].purple {
+      accent-color: #c084fc;
+    }
+    
+    input[type="range"].pink {
+      accent-color: #f472b6;
+    }
+    
+    .slider-marks {
+      display: flex;
+      justify-content: space-between;
+      color: #555;
+      font-size: 10px;
+    }
+    
+    .button-row {
+      display: flex;
+      gap: 10px;
+    }
+    
+    .run-btn {
+      flex: 1;
+      padding: 12px 24px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #ff6b9d 0%, #c084fc 100%);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(192,132,252,0.4);
+    }
+    
+    .run-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(192,132,252,0.5);
+    }
+    
+    .stop-btn {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background: rgba(239, 68, 68, 0.8);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .random-btn {
+      padding: 12px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #60a5fa 0%, #6366f1 100%);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(99,102,241,0.35);
+    }
+
+    .random-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(99,102,241,0.5);
+    }
+    
+    .legend {
+      position: absolute;
+      top: 100px;
+      right: 20px;
+      padding: 20px;
+      background: rgba(30, 30, 50, 0.85);
+      border-radius: 12px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.1);
+      font-size: 13px;
+      color: #ccc;
+      z-index: 10;
+    }
+    
+    .legend-title {
+      margin-bottom: 12px;
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    
+    .legend-item:last-child {
+      margin-bottom: 0;
+    }
+    
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    
+    .legend-line {
+      width: 20px;
+      height: 3px;
+      border-radius: 2px;
+    }
+    
+    .legend-gradient {
+      width: 20px;
+      height: 12px;
+      background: linear-gradient(90deg, #00d4ff, #ff00ff);
+      border-radius: 2px;
+    }
+    
+    .param-row {
+      display: flex;
+      gap: 15px;
+    }
+    
+    .param-col {
+      flex: 1;
+    }
+    
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="container"></div>
+  
+  <div class="header">
+    <h1>勾配降下法の説明</h1>
+    <p>Gradient Descent Visualization • ドラッグで回転 • スクロールでズーム • 右クリックで開始位置を指定 • 🎲ボタンでランダム開始</p>
+  </div>
+  
+  <div class="control-panel">
+    <div>
+      <label class="control-label">最適化アルゴリズム</label>
+      <div class="optimizer-buttons">
+        <button class="optimizer-btn active" data-optimizer="sgd">SGD</button>
+        <button class="optimizer-btn" data-optimizer="momentum">Momentum</button>
+        <button class="optimizer-btn" data-optimizer="adagrad">AdaGrad</button>
+        <button class="optimizer-btn" data-optimizer="rmsprop">RMSprop</button>
+        <button class="optimizer-btn" data-optimizer="adam">Adam</button>
+      </div>
+      <p class="optimizer-desc" id="optimizer-desc">最も基本的な勾配降下法</p>
+    </div>
+    
+    <div class="slider-container">
+      <div class="slider-header">
+        <span>学習率 (Learning Rate)</span>
+        <span class="slider-value" id="lr-value">0.100</span>
+      </div>
+      <input type="range" id="lr-slider" min="0.001" max="0.5" step="0.001" value="0.1">
+      <div class="slider-marks">
+        <span>0.001</span>
+        <span>0.5</span>
+      </div>
+    </div>
+    
+    <div class="slider-container hidden" id="momentum-container">
+      <div class="slider-header">
+        <span>モーメンタム係数</span>
+        <span class="slider-value purple" id="momentum-value">0.90</span>
+      </div>
+      <input type="range" class="purple" id="momentum-slider" min="0" max="0.99" step="0.01" value="0.9">
+    </div>
+    
+    <div class="param-row hidden" id="adam-container">
+      <div class="param-col">
+        <div class="slider-header">
+          <span>β₁</span>
+          <span class="slider-value purple" id="beta1-value">0.90</span>
+        </div>
+        <input type="range" class="purple" id="beta1-slider" min="0" max="0.999" step="0.01" value="0.9">
+      </div>
+      <div class="param-col">
+        <div class="slider-header">
+          <span>β₂</span>
+          <span class="slider-value pink" id="beta2-value">0.999</span>
+        </div>
+        <input type="range" class="pink" id="beta2-slider" min="0.9" max="0.9999" step="0.0001" value="0.999">
+      </div>
+    </div>
+    
+    <div class="button-row">
+      <button class="run-btn" id="run-btn">🎯 最適化を実行</button>
+      <button class="random-btn" id="random-btn" title="ランダムな開始位置から実行">🎲 ランダム</button>
+      <button class="stop-btn hidden" id="stop-btn">⏹</button>
+    </div>
+  </div>
+  
+  <div class="legend">
+    <div class="legend-title">凡例</div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #ff3366;"></div>
+      <span>極小値 (Minima)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #00ff88;"></div>
+      <span>現在位置 (Current)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-line" style="background: #ffcc00;"></div>
+      <span>最適化経路 (Path)</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-gradient"></div>
+      <span>損失関数 (Loss)</span>
+    </div>
+  </div>
+
+  <script>
+    // === Configuration ===
+    const SCALE = 2;
+    let currentOptimizer = 'sgd';
+    let learningRate = 0.1;
+    let momentumCoef = 0.9;
+    let beta1 = 0.9;
+    let beta2 = 0.999;
+    let animating = false;
+    let animationTimeout = null;
+    
+    const optimizerDescriptions = {
+      sgd: '最も基本的な勾配降下法',
+      momentum: '慣性を利用して振動を抑制',
+      adagrad: '学習率を適応的に調整',
+      rmsprop: 'AdaGradの改良版',
+      adam: 'MomentumとRMSpropの組み合わせ'
+    };
+
+    // === Loss Function ===
+    function lossFunction(x, y) {
+      // All minima have the same depth, but different widths
+      const term1 = -4 * Math.exp(-((x + 1) ** 2 + (y + 1) ** 2) / 0.15);
+      const term2 = -4 * Math.exp(-((x - 1) ** 2 + (y - 1) ** 2) / 0.6);
+      const term3 = -4 * Math.exp(-((x - 0.5) ** 2 + (y + 0.5) ** 2) / 0.3);
+      const term4 = (x ** 2 + y ** 2) * 0.03;
+      return term1 + term2 + term3 + term4 + 1;
+    }
+
+    function gradient(x, y) {
+      const h = 0.001;
+      const dx = (lossFunction(x + h, y) - lossFunction(x - h, y)) / (2 * h);
+      const dy = (lossFunction(x, y + h) - lossFunction(x, y - h)) / (2 * h);
+      return { dx, dy };
+    }
+
+    // === Optimizers ===
+    const optimizers = {
+      sgd: (x, y, grad, state, lr) => ({
+        x: x - lr * grad.dx,
+        y: y - lr * grad.dy,
+        state: {}
+      }),
+      
+      momentum: (x, y, grad, state, lr) => {
+        const vx = (state.vx || 0) * momentumCoef + lr * grad.dx;
+        const vy = (state.vy || 0) * momentumCoef + lr * grad.dy;
+        return { x: x - vx, y: y - vy, state: { vx, vy } };
+      },
+      
+      adagrad: (x, y, grad, state, lr) => {
+        const gx = (state.gx || 0) + grad.dx ** 2;
+        const gy = (state.gy || 0) + grad.dy ** 2;
+        const eps = 1e-8;
+        return {
+          x: x - (lr / Math.sqrt(gx + eps)) * grad.dx,
+          y: y - (lr / Math.sqrt(gy + eps)) * grad.dy,
+          state: { gx, gy }
+        };
+      },
+      
+      rmsprop: (x, y, grad, state, lr) => {
+        const decay = 0.9;
+        const eps = 1e-8;
+        const sx = decay * (state.sx || 0) + (1 - decay) * grad.dx ** 2;
+        const sy = decay * (state.sy || 0) + (1 - decay) * grad.dy ** 2;
+        return {
+          x: x - (lr / Math.sqrt(sx + eps)) * grad.dx,
+          y: y - (lr / Math.sqrt(sy + eps)) * grad.dy,
+          state: { sx, sy }
+        };
+      },
+      
+      adam: (x, y, grad, state, lr) => {
+        const eps = 1e-8;
+        const t = (state.t || 0) + 1;
+        const mx = beta1 * (state.mx || 0) + (1 - beta1) * grad.dx;
+        const my = beta1 * (state.my || 0) + (1 - beta1) * grad.dy;
+        const vx = beta2 * (state.vx || 0) + (1 - beta2) * grad.dx ** 2;
+        const vy = beta2 * (state.vy || 0) + (1 - beta2) * grad.dy ** 2;
+        const mxHat = mx / (1 - Math.pow(beta1, t));
+        const myHat = my / (1 - Math.pow(beta1, t));
+        const vxHat = vx / (1 - Math.pow(beta2, t));
+        const vyHat = vy / (1 - Math.pow(beta2, t));
+        return {
+          x: x - (lr * mxHat) / (Math.sqrt(vxHat) + eps),
+          y: y - (lr * myHat) / (Math.sqrt(vyHat) + eps),
+          state: { mx, my, vx, vy, t }
+        };
+      }
+    };
+
+    // === Three.js Setup ===
+    const container = document.getElementById('container');
+    const scene = new THREE.Scene();
+    scene.background = new THREE.Color(0x1a1a2e);
+
+    const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    container.appendChild(renderer.domElement);
+
+    // Lighting
+    scene.add(new THREE.AmbientLight(0xffffff, 0.4));
+    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+    dirLight.position.set(5, 10, 5);
+    scene.add(dirLight);
+    const pointLight = new THREE.PointLight(0xff6b9d, 0.5);
+    pointLight.position.set(-3, 5, -3);
+    scene.add(pointLight);
+
+    // Camera controls
+    let spherical = { theta: Math.PI / 4, phi: Math.PI / 3, radius: 10 };
+    let isDragging = false;
+    let previousMouse = { x: 0, y: 0 };
+
+    function updateCamera() {
+      camera.position.x = spherical.radius * Math.sin(spherical.phi) * Math.cos(spherical.theta);
+      camera.position.y = spherical.radius * Math.cos(spherical.phi);
+      camera.position.z = spherical.radius * Math.sin(spherical.phi) * Math.sin(spherical.theta);
+      camera.lookAt(0, -2, 0);
+    }
+    updateCamera();
+
+    // === Create Surface ===
+    function createSurface() {
+      const resolution = 100;
+      const geometry = new THREE.BufferGeometry();
+      const vertices = [];
+      const colors = [];
+      const indices = [];
+
+      for (let i = 0; i < resolution; i++) {
+        for (let j = 0; j < resolution; j++) {
+          const x = -2 + (4 * i) / (resolution - 1);
+          const y = -2 + (4 * j) / (resolution - 1);
+          const z = lossFunction(x, y);
+          vertices.push(x * SCALE, z, y * SCALE);
+        }
+      }
+
+      let minZ = Infinity, maxZ = -Infinity;
+      for (let i = 1; i < vertices.length; i += 3) {
+        minZ = Math.min(minZ, vertices[i]);
+        maxZ = Math.max(maxZ, vertices[i]);
+      }
+
+      for (let i = 1; i < vertices.length; i += 3) {
+        const z = vertices[i];
+        const t = (z - minZ) / (maxZ - minZ);
+        const color = new THREE.Color();
+        if (t < 0.5) {
+          color.setHSL(0.55 - t * 0.2, 0.9, 0.5 + t * 0.1);
+        } else {
+          color.setHSL(0.85, 0.8, 0.4 + (t - 0.5) * 0.3);
+        }
+        colors.push(color.r, color.g, color.b);
+      }
+
+      for (let i = 0; i < resolution - 1; i++) {
+        for (let j = 0; j < resolution - 1; j++) {
+          const a = i * resolution + j;
+          const b = i * resolution + j + 1;
+          const c = (i + 1) * resolution + j;
+          const d = (i + 1) * resolution + j + 1;
+          indices.push(a, b, c, b, d, c);
+        }
+      }
+
+      geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+      geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+      geometry.setIndex(indices);
+      geometry.computeVertexNormals();
+
+      const material = new THREE.MeshPhongMaterial({
+        vertexColors: true,
+        side: THREE.DoubleSide,
+        shininess: 50,
+        transparent: true,
+        opacity: 0.85,
+      });
+
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.name = 'lossSurface';
+      scene.add(mesh);
+      return mesh;
+    }
+
+    // === Create Grid ===
+    function createGrid() {
+      const gridHelper = new THREE.GridHelper(8 * SCALE, 16, 0x444466, 0x333355);
+      gridHelper.position.y = -5;
+      scene.add(gridHelper);
+
+      const planeGeo = new THREE.PlaneGeometry(8 * SCALE, 8 * SCALE);
+      const planeMat = new THREE.MeshBasicMaterial({ color: 0x2a2a4a, transparent: true, opacity: 0.5, side: THREE.DoubleSide });
+      const plane = new THREE.Mesh(planeGeo, planeMat);
+      plane.rotation.x = -Math.PI / 2;
+      plane.position.y = -5;
+      scene.add(plane);
+    }
+
+    // === Create Minima Markers ===
+    function createMinimaMarkers() {
+      const minima = [
+        { x: -1, y: -1 },
+        { x: 1, y: 1 },
+        { x: 0.5, y: -0.5 }
+      ];
+
+      minima.forEach(min => {
+        const z = lossFunction(min.x, min.y);
+        const pos = new THREE.Vector3(min.x * SCALE, z, min.y * SCALE);
+
+        const star = new THREE.Mesh(
+          new THREE.OctahedronGeometry(0.15, 0),
+          new THREE.MeshBasicMaterial({ color: 0xff3366 })
+        );
+        star.position.copy(pos);
+        scene.add(star);
+
+        const glow = new THREE.Mesh(
+          new THREE.SphereGeometry(0.25, 16, 16),
+          new THREE.MeshBasicMaterial({ color: 0xff3366, transparent: true, opacity: 0.3 })
+        );
+        glow.position.copy(pos);
+        scene.add(glow);
+
+        const lineGeo = new THREE.BufferGeometry().setFromPoints([
+          pos, new THREE.Vector3(pos.x, -5, pos.z)
+        ]);
+        const line = new THREE.Line(lineGeo, new THREE.LineDashedMaterial({ color: 0xff6699, dashSize: 0.15, gapSize: 0.1 }));
+        line.computeLineDistances();
+        scene.add(line);
+      });
+    }
+
+    // === Create Axes ===
+    function createAxes() {
+      const len = 2 * SCALE + 0.5;
+      const mat = new THREE.LineBasicMaterial({ color: 0x888899 });
+
+      [
+        [[-len, -5, 0], [len, -5, 0]],
+        [[0, -5, -len], [0, -5, len]],
+        [[0, -5, 0], [0, 2, 0]]
+      ].forEach(pts => {
+        const geo = new THREE.BufferGeometry().setFromPoints(pts.map(p => new THREE.Vector3(...p)));
+        scene.add(new THREE.Line(geo, mat));
+      });
+    }
+
+    const surfaceMesh = createSurface();
+    createGrid();
+    createMinimaMarkers();
+    createAxes();
+
+    // User-selected start position (null = random)
+    let userStart = null;
+
+    // === Animation ===
+    let pathGroup = null;
+
+    function runOptimization(startPos) {
+      stopAnimation();
+      animating = true;
+      document.getElementById('stop-btn').classList.remove('hidden');
+      document.getElementById('run-btn').textContent = '🎯 再スタート';
+
+      if (pathGroup) scene.remove(pathGroup);
+      pathGroup = new THREE.Group();
+      pathGroup.name = 'gradientPath';
+      scene.add(pathGroup);
+
+      // Start position: user-specified or random
+      let x, y;
+      if (startPos) {
+        x = startPos.x;
+        y = startPos.y;
+      } else {
+        x = (Math.random() - 0.5) * 3.6;
+        y = (Math.random() - 0.5) * 3.6;
+      }
+      let state = {};
+      const points = [];
+
+      // Pre-compute path
+      for (let i = 0; i < 150; i++) {
+        const z = lossFunction(x, y);
+        points.push(new THREE.Vector3(x * SCALE, z + 0.02, y * SCALE));
+        
+        const grad = gradient(x, y);
+        const result = optimizers[currentOptimizer](x, y, grad, state, learningRate);
+        x = result.x;
+        y = result.y;
+        state = result.state;
+
+        if (Math.abs(x) > 2.5 || Math.abs(y) > 2.5) break;
+        if (Math.abs(grad.dx) < 0.0001 && Math.abs(grad.dy) < 0.0001) break;
+      }
+
+      // Start marker
+      const startMarker = new THREE.Mesh(
+        new THREE.SphereGeometry(0.12, 16, 16),
+        new THREE.MeshBasicMaterial({ color: 0x00ff88, transparent: true, opacity: 0.5 })
+      );
+      startMarker.position.copy(points[0]);
+      pathGroup.add(startMarker);
+
+      let currentIndex = 0;
+      let currentLine = null;
+      let currentBall = null;
+
+      function step() {
+        if (!animating || currentIndex >= points.length) {
+          animating = false;
+          document.getElementById('stop-btn').classList.add('hidden');
+          return;
+        }
+
+        const visible = points.slice(0, currentIndex + 1);
+
+        if (currentLine) pathGroup.remove(currentLine);
+        if (visible.length >= 2) {
+          const geo = new THREE.BufferGeometry().setFromPoints(visible);
+          currentLine = new THREE.Line(geo, new THREE.LineBasicMaterial({ color: 0xffcc00 }));
+          pathGroup.add(currentLine);
+        }
+
+        if (currentBall) pathGroup.remove(currentBall);
+        currentBall = new THREE.Mesh(
+          new THREE.SphereGeometry(0.15, 16, 16),
+          new THREE.MeshBasicMaterial({ color: 0x00ff88 })
+        );
+        currentBall.position.copy(points[currentIndex]);
+        pathGroup.add(currentBall);
+
+        currentIndex++;
+        animationTimeout = setTimeout(step, 30);
+      }
+
+      step();
+    }
+
+    function stopAnimation() {
+      if (animationTimeout) {
+        clearTimeout(animationTimeout);
+        animationTimeout = null;
+      }
+      animating = false;
+      document.getElementById('stop-btn').classList.add('hidden');
+    }
+
+    // === Event Listeners ===
+    const raycaster = new THREE.Raycaster();
+    const mouseNDC = new THREE.Vector2();
+
+    // Fallback picking plane (y=0 in world coords) for clicks that miss the surface.
+    const pickPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0);
+
+    function pickStartPosition(clientX, clientY) {
+      const rect = renderer.domElement.getBoundingClientRect();
+      mouseNDC.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+      mouseNDC.y = -((clientY - rect.top) / rect.height) * 2 + 1;
+      raycaster.setFromCamera(mouseNDC, camera);
+
+      let fx, fy;
+      const hits = raycaster.intersectObject(surfaceMesh, false);
+      if (hits.length > 0) {
+        const p = hits[0].point;
+        fx = p.x / SCALE;
+        fy = p.z / SCALE;
+      } else {
+        const target = new THREE.Vector3();
+        if (!raycaster.ray.intersectPlane(pickPlane, target)) return null;
+        fx = target.x / SCALE;
+        fy = target.z / SCALE;
+      }
+
+      fx = Math.max(-1.95, Math.min(1.95, fx));
+      fy = Math.max(-1.95, Math.min(1.95, fy));
+      return { x: fx, y: fy };
+    }
+
+    // Suppress the browser context menu so right-click is free for picking.
+    // Attach in capture phase on both the canvas and document so nothing else
+    // gets a chance to open the default menu.
+    function suppressContextMenu(e) {
+      if (e.target === renderer.domElement || renderer.domElement.contains(e.target)) {
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
+      }
+    }
+    renderer.domElement.addEventListener('contextmenu', suppressContextMenu, true);
+    document.addEventListener('contextmenu', suppressContextMenu, true);
+    renderer.domElement.oncontextmenu = e => { e.preventDefault(); return false; };
+
+    // Pick on contextmenu too, since some browsers/setups won't deliver a
+    // mousedown for the right button until after the menu would have opened.
+    renderer.domElement.addEventListener('contextmenu', e => {
+      const pos = pickStartPosition(e.clientX, e.clientY);
+      if (pos) {
+        userStart = pos;
+        runOptimization(pos);
+      }
+    });
+
+    renderer.domElement.addEventListener('mousedown', e => {
+      if (e.button === 2) {
+        // Right click → set start position and run.
+        const pos = pickStartPosition(e.clientX, e.clientY);
+        if (pos) {
+          userStart = pos;
+          runOptimization(pos);
+        }
+        return;
+      }
+      if (e.button !== 0) return;
+      isDragging = true;
+      previousMouse = { x: e.clientX, y: e.clientY };
+    });
+
+    renderer.domElement.addEventListener('mousemove', e => {
+      if (!isDragging) return;
+      spherical.theta -= (e.clientX - previousMouse.x) * 0.01;
+      spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi - (e.clientY - previousMouse.y) * 0.01));
+      updateCamera();
+      previousMouse = { x: e.clientX, y: e.clientY };
+    });
+
+    renderer.domElement.addEventListener('mouseup', () => { isDragging = false; });
+    renderer.domElement.addEventListener('mouseleave', () => { isDragging = false; });
+
+    renderer.domElement.addEventListener('wheel', e => {
+      e.preventDefault();
+      spherical.radius = Math.max(5, Math.min(20, spherical.radius + e.deltaY * 0.01));
+      updateCamera();
+    }, { passive: false });
+
+    // Touch events: two-finger tap to pick start, one-finger drag to rotate.
+    renderer.domElement.addEventListener('touchstart', e => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        const t = e.touches[0];
+        const pos = pickStartPosition(t.clientX, t.clientY);
+        if (pos) {
+          userStart = pos;
+          runOptimization(pos);
+        }
+        return;
+      }
+      if (e.touches.length === 1) {
+        isDragging = true;
+        previousMouse = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+      }
+    }, { passive: false });
+
+    renderer.domElement.addEventListener('touchmove', e => {
+      if (!isDragging || e.touches.length !== 1) return;
+      const cx = e.touches[0].clientX, cy = e.touches[0].clientY;
+      spherical.theta -= (cx - previousMouse.x) * 0.01;
+      spherical.phi = Math.max(0.1, Math.min(Math.PI - 0.1, spherical.phi - (cy - previousMouse.y) * 0.01));
+      updateCamera();
+      previousMouse = { x: cx, y: cy };
+    });
+
+    renderer.domElement.addEventListener('touchend', () => { isDragging = false; });
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // UI Controls
+    document.querySelectorAll('.optimizer-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.optimizer-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentOptimizer = btn.dataset.optimizer;
+        document.getElementById('optimizer-desc').textContent = optimizerDescriptions[currentOptimizer];
+        
+        document.getElementById('momentum-container').classList.toggle('hidden', currentOptimizer !== 'momentum');
+        document.getElementById('adam-container').classList.toggle('hidden', currentOptimizer !== 'adam');
+      });
+    });
+
+    document.getElementById('lr-slider').addEventListener('input', e => {
+      learningRate = parseFloat(e.target.value);
+      document.getElementById('lr-value').textContent = learningRate.toFixed(3);
+    });
+
+    document.getElementById('momentum-slider').addEventListener('input', e => {
+      momentumCoef = parseFloat(e.target.value);
+      document.getElementById('momentum-value').textContent = momentumCoef.toFixed(2);
+    });
+
+    document.getElementById('beta1-slider').addEventListener('input', e => {
+      beta1 = parseFloat(e.target.value);
+      document.getElementById('beta1-value').textContent = beta1.toFixed(2);
+    });
+
+    document.getElementById('beta2-slider').addEventListener('input', e => {
+      beta2 = parseFloat(e.target.value);
+      document.getElementById('beta2-value').textContent = beta2.toFixed(3);
+    });
+
+    document.getElementById('run-btn').addEventListener('click', () => runOptimization(userStart));
+    document.getElementById('random-btn').addEventListener('click', () => {
+      userStart = null;
+      runOptimization(null);
+    });
+    document.getElementById('stop-btn').addEventListener('click', stopAnimation);
+
+    // Render loop
+    function animate() {
+      requestAnimationFrame(animate);
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>
