@@ -68,7 +68,8 @@
 - F〜I: 物体検出・分割、音声処理(音声識別、異常音検知)、GAN、StyleGAN
 - J〜L: 自然言語処理(Attention、Transformer、BERT、GPT、CLIP、LLMの調整)、ViTとVLM、拡散モデル
 - M: LLM(基礎、応用、エージェント、評価、エージェント設計)
-- N〜T: 応用アプリ、RWKV、連合学習、AIの将来、運用、推論サービング、安全性と公平性
+- N〜R: 応用アプリ、RWKV、連合学習、推論サービング、安全性と公平性
+- S〜T: AIの将来、運用(常に最後に置く)
 
 ----
 - ガイダンス  
@@ -169,11 +170,11 @@
 [![mlsys-text-O-RWKV.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-O-RWKV.ipynb)
 - P-Federated  
 [![mlsys-text-P-Federated.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-P-Federated.ipynb)
-- Q-AIの将来  
-[![mlsys-text-Q-AIの将来.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-Q-AIの将来.ipynb)
-- R-運用  
-[![mlsys-text-R-運用.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-R-運用.ipynb)
-- S-推論サービング  
-[![mlsys-text-S-推論サービング.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-S-推論サービング.ipynb)
-- T-安全性と公平性  
-[![mlsys-text-T-安全性と公平性.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-T-安全性と公平性.ipynb)
+- Q-推論サービング  
+[![mlsys-text-Q-推論サービング.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-Q-推論サービング.ipynb)
+- R-安全性と公平性  
+[![mlsys-text-R-安全性と公平性.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-R-安全性と公平性.ipynb)
+- S-AIの将来  
+[![mlsys-text-S-AIの将来.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-S-AIの将来.ipynb)
+- T-運用  
+[![mlsys-text-T-運用.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-T-運用.ipynb)
