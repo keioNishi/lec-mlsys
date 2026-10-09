@@ -49,13 +49,26 @@
 - 講義や課題で利用する場合は日中の利用を推奨します
   - 無償版では海外、特にアメリカが利用する日本の夜間は混雑する傾向があり、海外が夜間となる日中の時間帯が比較的空いています
   - 授業中など、日中混雑して利用できなかったという報告を過去受けておらず、試験も滞りなく実施できています(2024年も現状問題報告はありません)
-  - 有償版(例えばColab ProやPay As You Go)は1,179円/月(2025年10月調査)で利用できるため、かなりお得で、十分に利用価値があります
+  - 有償版(例えばColab ProやPay As You Go)は1,179円/月(2025年10月調査、最新の価格は[Colabの料金ページ](https://colab.research.google.com/signup)で確認すること)で利用できるため、かなりお得で、十分に利用価値があります
     - 一度課金すれば、授業履修において不足はないといえますが、もし、不足する場合は、Pay As You Goを追加利用してください(1,179円で90日有効です)
     - Colab Proで十分であり、Colab Pro+を利用する必要はありません
     
 # 授業テキスト
 下記の`Open in Colab`バッジをクリックすると、該当するテキストのColabを開くことができます
 - 開いた後、変更を加える場合は必ず「ノートブックの保存」を行い、自身のGoogle Drive内部に保存してください
+- ファイル名は`mlsys-text-<章>-<題名>.ipynb`であり、章は1〜9、A〜Tの順に進む
+  - 同じ章が複数のテキストに分かれる場合は、`-1`、`-2`のように番号を付けている(例: `6-DNN入門-1`と`6-DNN入門-2`、`G-音声処理-1`と`G-音声処理-2`)
+  - 本文中の「G-音声処理-2-異常音検知の章を参照」などの表記は、このファイル名の章の部分を指す
+
+## 構成の概要
+- ガイダンス: AIの歴史、機械学習の基本、現実の課題
+- 1〜5: 準備、機械学習の基礎(数学の補助とPython復習を含む)、データの扱い、機械学習ライブラリ、scikit-learnのまとめ
+- 6〜8: DNN入門(モデル構築と評価、ニューラルネットワークの基礎)、PyTorch
+- 9〜E: CNN、RNN、AutoEncoder、転移学習、強化学習、PyTorchの応用
+- F〜I: 物体検出・分割、音声処理(音声識別、異常音検知)、GAN、StyleGAN
+- J〜L: 自然言語処理(Attention、Transformer、BERT、GPT、CLIP、LLMの調整)、ViTとVLM、拡散モデル
+- M: LLM(基礎、応用、エージェント、評価、エージェント設計)
+- N〜T: 応用アプリ、RWKV、連合学習、AIの将来、運用、推論サービング、安全性と公平性
 
 ----
 - ガイダンス  
@@ -76,8 +89,10 @@
 [![mlsys-text-4-MLライブラリの基礎.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-4-MLライブラリの基礎.ipynb)
 - 5-Sklearn-まとめ  
 [![mlsys-text-5-Sklearn-まとめ.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-5-Sklearn-まとめ.ipynb)
-- 6-ニューラルネットワークの基礎  
-[![mlsys-text-6-ニューラルネットワークの基礎.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-6-ニューラルネットワークの基礎.ipynb)
+- 6-DNN入門-1-モデル構築と評価  
+[![mlsys-text-6-DNN入門-1-モデル構築と評価.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-6-DNN入門-1-モデル構築と評価.ipynb)
+- 6-DNN入門-2-ニューラルネットワーク  
+[![mlsys-text-6-DNN入門-2-ニューラルネットワーク.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-6-DNN入門-2-ニューラルネットワーク.ipynb)
 - 7-PyTorch  
 [![mlsys-text-7-PyTorch.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-7-PyTorch.ipynb)
 - 8-PyTorch-Basics  
@@ -98,8 +113,10 @@
 [![mlsys-text-F-物体検出・分割-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-F-物体検出・分割-1.ipynb)
 - F-物体検出・分割-2  
 [![mlsys-text-F-物体検出・分割-2.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-F-物体検出・分割-2.ipynb)
-- G-音声識別  
-[![mlsys-text-G-音声識別.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-G-音声識別.ipynb)
+- G-音声処理-1-音声識別  
+[![mlsys-text-G-音声処理-1-音声識別.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-G-音声処理-1-音声識別.ipynb)
+- G-音声処理-2-異常音検知  
+[![mlsys-text-G-音声処理-2-異常音検知.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-G-音声処理-2-異常音検知.ipynb)
 - H-GAN-1  
 [![mlsys-text-H-GAN-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-H-GAN-1.ipynb)
 - H-GAN-2  
@@ -126,8 +143,12 @@
 [![mlsys-text-J-NLP-6-GPT-full.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-NLP-6-GPT-full.ipynb)
 - J-NLP-7-CLIP-GD  
 [![mlsys-text-J-NLP-7-CLIP-GD.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-NLP-7-CLIP-GD.ipynb)
-- K-ViT-US  
-[![mlsys-text-K-ViT-US.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-ViT-US.ipynb)
+- J-NLP-8-LLM調整  
+[![mlsys-text-J-NLP-8-LLM調整.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-J-NLP-8-LLM調整.ipynb)
+- K-1-ViT-US  
+[![mlsys-text-K-1-ViT-US.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-1-ViT-US.ipynb)
+- K-2-VLM  
+[![mlsys-text-K-2-VLM.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-K-2-VLM.ipynb)
 - L-Diffusion-1  
 [![mlsys-text-L-Diffusion-1.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-L-Diffusion-1.ipynb)
 - L-Diffusion-2  
@@ -138,6 +159,10 @@
 [![mlsys-text-M-LLM-2-Application.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-2-Application.ipynb)
 - M-LLM-3-Agent  
 [![mlsys-text-M-LLM-3-Agent.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-3-Agent.ipynb)
+- M-LLM-4-評価  
+[![mlsys-text-M-LLM-4-評価.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-4-評価.ipynb)
+- M-LLM-5-Agent設計  
+[![mlsys-text-M-LLM-5-Agent設計.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-5-Agent設計.ipynb)
 - N-アプリ-transformer  
 [![mlsys-text-N-アプリ-transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-N-アプリ-transformer.ipynb)
 - O-RWKV  
@@ -148,3 +173,7 @@
 [![mlsys-text-Q-AIの将来.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-Q-AIの将来.ipynb)
 - R-運用  
 [![mlsys-text-R-運用.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-R-運用.ipynb)
+- S-推論サービング  
+[![mlsys-text-S-推論サービング.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-S-推論サービング.ipynb)
+- T-安全性と公平性  
+[![mlsys-text-T-安全性と公平性.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-T-安全性と公平性.ipynb)
