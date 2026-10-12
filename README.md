@@ -164,6 +164,8 @@
 [![mlsys-text-M-LLM-4-評価.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-4-評価.ipynb)
 - M-LLM-5-Agent設計  
 [![mlsys-text-M-LLM-5-Agent設計.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-5-Agent設計.ipynb)
+- M-LLM-6-LLMの理解  
+[![mlsys-text-M-LLM-6-LLMの理解.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-6-LLMの理解.ipynb)
 - N-アプリ-transformer  
 [![mlsys-text-N-アプリ-transformer.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-N-アプリ-transformer.ipynb)
 - O-RWKV  
