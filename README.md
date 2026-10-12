@@ -67,7 +67,7 @@
 - 9〜E: CNN、RNN、AutoEncoder、転移学習、強化学習、PyTorchの応用
 - F〜I: 物体検出・分割、音声処理(音声識別、異常音検知)、GAN、StyleGAN
 - J〜L: 自然言語処理(Attention、Transformer、BERT、GPT、CLIP、LLMの調整)、ViTとVLM、拡散モデル
-- M: LLM(基礎、応用、エージェント、評価、エージェント設計)
+- M: LLM(基礎、応用、エージェント、評価、エージェント設計、LLMの理解)
 - N〜R: 応用アプリ、RWKV、連合学習、推論サービング、安全性と公平性
 - S〜T: AIの将来、運用
 
