@@ -69,7 +69,7 @@
 - J〜L: 自然言語処理(Attention、Transformer、BERT、GPT、CLIP、LLMの調整)、ViTとVLM、拡散モデル
 - M: LLM(基礎、応用、エージェント、評価、エージェント設計)
 - N〜R: 応用アプリ、RWKV、連合学習、推論サービング、安全性と公平性
-- S〜T: AIの将来、運用(常に最後に置く)
+- S〜T: AIの将来、運用
 
 ----
 - ガイダンス  
