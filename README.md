@@ -66,7 +66,7 @@
 - 9〜E: CNN、RNN、AutoEncoder、転移学習、強化学習、PyTorchの応用
 - F〜I: 物体検出・分割、音声処理(音声識別、異常音検知)、GAN、StyleGAN
 - J〜L: 自然言語処理(Attention、Transformer、BERT、GPT、CLIP、LLMの調整)、ViTとVLM、拡散モデル
-- M: LLM(基礎、応用、エージェント、評価、エージェント設計、LLMの理解)
+- M: LLM(基礎、応用、エージェント、エージェント設計、評価、LLMの理解)
 - N〜R: 応用アプリ、RWKV、連合学習、推論サービング、安全性と公平性
 - S〜T: AIの将来、運用
 
@@ -159,10 +159,10 @@
 [![mlsys-text-M-LLM-2-Application.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-2-Application.ipynb)
 - M-LLM-3-Agent  
 [![mlsys-text-M-LLM-3-Agent.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-3-Agent.ipynb)
-- M-LLM-4-評価  
-[![mlsys-text-M-LLM-4-評価.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-4-評価.ipynb)
-- M-LLM-5-Agent設計  
-[![mlsys-text-M-LLM-5-Agent設計.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-5-Agent設計.ipynb)
+- M-LLM-4-Agent設計  
+[![mlsys-text-M-LLM-4-Agent設計.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-4-Agent設計.ipynb)
+- M-LLM-5-評価  
+[![mlsys-text-M-LLM-5-評価.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-5-評価.ipynb)
 - M-LLM-6-LLMの理解  
 [![mlsys-text-M-LLM-6-LLMの理解.ipynb](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/keioNishi/lec-mlsys/blob/main/mlsys-text-M-LLM-6-LLMの理解.ipynb)
 - N-アプリ-transformer  
